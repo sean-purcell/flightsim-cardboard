@@ -1,0 +1,530 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		14BE67691C5C0FF700361A6D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BE67681C5C0FF700361A6D /* main.m */; };
+		14BE676C1C5C0FF700361A6D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BE676B1C5C0FF700361A6D /* AppDelegate.m */; };
+		14BE676E1C5C0FF700361A6D /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 14BE676D1C5C0FF700361A6D /* Shader.fsh */; };
+		14BE67701C5C0FF700361A6D /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 14BE676F1C5C0FF700361A6D /* Shader.vsh */; };
+		14BE67731C5C0FF700361A6D /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BE67721C5C0FF700361A6D /* GameViewController.m */; };
+		14BE67761C5C0FF700361A6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14BE67741C5C0FF700361A6D /* Main.storyboard */; };
+		14BE67781C5C0FF700361A6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14BE67771C5C0FF700361A6D /* Assets.xcassets */; };
+		14BE677B1C5C0FF700361A6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14BE67791C5C0FF700361A6D /* LaunchScreen.storyboard */; };
+		14BE67861C5C0FF800361A6D /* Flightsim_CardboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BE67851C5C0FF800361A6D /* Flightsim_CardboardTests.m */; };
+		14BE67911C5C0FF800361A6D /* Flightsim_CardboardUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BE67901C5C0FF800361A6D /* Flightsim_CardboardUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		14BE67821C5C0FF800361A6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14BE675C1C5C0FF700361A6D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 14BE67631C5C0FF700361A6D;
+			remoteInfo = "Flightsim Cardboard";
+		};
+		14BE678D1C5C0FF800361A6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14BE675C1C5C0FF700361A6D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 14BE67631C5C0FF700361A6D;
+			remoteInfo = "Flightsim Cardboard";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		14BE67641C5C0FF700361A6D /* Flightsim Cardboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flightsim Cardboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		14BE67681C5C0FF700361A6D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		14BE676A1C5C0FF700361A6D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		14BE676B1C5C0FF700361A6D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		14BE676D1C5C0FF700361A6D /* Shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; };
+		14BE676F1C5C0FF700361A6D /* Shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; };
+		14BE67711C5C0FF700361A6D /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		14BE67721C5C0FF700361A6D /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		14BE67751C5C0FF700361A6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		14BE67771C5C0FF700361A6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		14BE677A1C5C0FF700361A6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		14BE677C1C5C0FF700361A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14BE67811C5C0FF800361A6D /* Flightsim CardboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flightsim CardboardTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		14BE67851C5C0FF800361A6D /* Flightsim_CardboardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Flightsim_CardboardTests.m; sourceTree = "<group>"; };
+		14BE67871C5C0FF800361A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14BE678C1C5C0FF800361A6D /* Flightsim CardboardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flightsim CardboardUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		14BE67901C5C0FF800361A6D /* Flightsim_CardboardUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Flightsim_CardboardUITests.m; sourceTree = "<group>"; };
+		14BE67921C5C0FF800361A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		14BE67611C5C0FF700361A6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14BE677E1C5C0FF800361A6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14BE67891C5C0FF800361A6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		14BE675B1C5C0FF700361A6D = {
+			isa = PBXGroup;
+			children = (
+				14BE67661C5C0FF700361A6D /* Flightsim Cardboard */,
+				14BE67841C5C0FF800361A6D /* Flightsim CardboardTests */,
+				14BE678F1C5C0FF800361A6D /* Flightsim CardboardUITests */,
+				14BE67651C5C0FF700361A6D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		14BE67651C5C0FF700361A6D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				14BE67641C5C0FF700361A6D /* Flightsim Cardboard.app */,
+				14BE67811C5C0FF800361A6D /* Flightsim CardboardTests.xctest */,
+				14BE678C1C5C0FF800361A6D /* Flightsim CardboardUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		14BE67661C5C0FF700361A6D /* Flightsim Cardboard */ = {
+			isa = PBXGroup;
+			children = (
+				14BE676A1C5C0FF700361A6D /* AppDelegate.h */,
+				14BE676B1C5C0FF700361A6D /* AppDelegate.m */,
+				14BE676D1C5C0FF700361A6D /* Shader.fsh */,
+				14BE676F1C5C0FF700361A6D /* Shader.vsh */,
+				14BE67711C5C0FF700361A6D /* GameViewController.h */,
+				14BE67721C5C0FF700361A6D /* GameViewController.m */,
+				14BE67741C5C0FF700361A6D /* Main.storyboard */,
+				14BE67771C5C0FF700361A6D /* Assets.xcassets */,
+				14BE67791C5C0FF700361A6D /* LaunchScreen.storyboard */,
+				14BE677C1C5C0FF700361A6D /* Info.plist */,
+				14BE67671C5C0FF700361A6D /* Supporting Files */,
+			);
+			path = "Flightsim Cardboard";
+			sourceTree = "<group>";
+		};
+		14BE67671C5C0FF700361A6D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				14BE67681C5C0FF700361A6D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		14BE67841C5C0FF800361A6D /* Flightsim CardboardTests */ = {
+			isa = PBXGroup;
+			children = (
+				14BE67851C5C0FF800361A6D /* Flightsim_CardboardTests.m */,
+				14BE67871C5C0FF800361A6D /* Info.plist */,
+			);
+			path = "Flightsim CardboardTests";
+			sourceTree = "<group>";
+		};
+		14BE678F1C5C0FF800361A6D /* Flightsim CardboardUITests */ = {
+			isa = PBXGroup;
+			children = (
+				14BE67901C5C0FF800361A6D /* Flightsim_CardboardUITests.m */,
+				14BE67921C5C0FF800361A6D /* Info.plist */,
+			);
+			path = "Flightsim CardboardUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		14BE67631C5C0FF700361A6D /* Flightsim Cardboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14BE67951C5C0FF800361A6D /* Build configuration list for PBXNativeTarget "Flightsim Cardboard" */;
+			buildPhases = (
+				14BE67601C5C0FF700361A6D /* Sources */,
+				14BE67611C5C0FF700361A6D /* Frameworks */,
+				14BE67621C5C0FF700361A6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Flightsim Cardboard";
+			productName = "Flightsim Cardboard";
+			productReference = 14BE67641C5C0FF700361A6D /* Flightsim Cardboard.app */;
+			productType = "com.apple.product-type.application";
+		};
+		14BE67801C5C0FF800361A6D /* Flightsim CardboardTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14BE67981C5C0FF800361A6D /* Build configuration list for PBXNativeTarget "Flightsim CardboardTests" */;
+			buildPhases = (
+				14BE677D1C5C0FF800361A6D /* Sources */,
+				14BE677E1C5C0FF800361A6D /* Frameworks */,
+				14BE677F1C5C0FF800361A6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				14BE67831C5C0FF800361A6D /* PBXTargetDependency */,
+			);
+			name = "Flightsim CardboardTests";
+			productName = "Flightsim CardboardTests";
+			productReference = 14BE67811C5C0FF800361A6D /* Flightsim CardboardTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		14BE678B1C5C0FF800361A6D /* Flightsim CardboardUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14BE679B1C5C0FF800361A6D /* Build configuration list for PBXNativeTarget "Flightsim CardboardUITests" */;
+			buildPhases = (
+				14BE67881C5C0FF800361A6D /* Sources */,
+				14BE67891C5C0FF800361A6D /* Frameworks */,
+				14BE678A1C5C0FF800361A6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				14BE678E1C5C0FF800361A6D /* PBXTargetDependency */,
+			);
+			name = "Flightsim CardboardUITests";
+			productName = "Flightsim CardboardUITests";
+			productReference = 14BE678C1C5C0FF800361A6D /* Flightsim CardboardUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		14BE675C1C5C0FF700361A6D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Sean Purcell";
+				TargetAttributes = {
+					14BE67631C5C0FF700361A6D = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = RH2JZ65YNT;
+					};
+					14BE67801C5C0FF800361A6D = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = RH2JZ65YNT;
+						TestTargetID = 14BE67631C5C0FF700361A6D;
+					};
+					14BE678B1C5C0FF800361A6D = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = RH2JZ65YNT;
+						TestTargetID = 14BE67631C5C0FF700361A6D;
+					};
+				};
+			};
+			buildConfigurationList = 14BE675F1C5C0FF700361A6D /* Build configuration list for PBXProject "Flightsim Cardboard" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 14BE675B1C5C0FF700361A6D;
+			productRefGroup = 14BE67651C5C0FF700361A6D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				14BE67631C5C0FF700361A6D /* Flightsim Cardboard */,
+				14BE67801C5C0FF800361A6D /* Flightsim CardboardTests */,
+				14BE678B1C5C0FF800361A6D /* Flightsim CardboardUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		14BE67621C5C0FF700361A6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14BE67761C5C0FF700361A6D /* Main.storyboard in Resources */,
+				14BE67701C5C0FF700361A6D /* Shader.vsh in Resources */,
+				14BE67781C5C0FF700361A6D /* Assets.xcassets in Resources */,
+				14BE677B1C5C0FF700361A6D /* LaunchScreen.storyboard in Resources */,
+				14BE676E1C5C0FF700361A6D /* Shader.fsh in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14BE677F1C5C0FF800361A6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14BE678A1C5C0FF800361A6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		14BE67601C5C0FF700361A6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14BE676C1C5C0FF700361A6D /* AppDelegate.m in Sources */,
+				14BE67731C5C0FF700361A6D /* GameViewController.m in Sources */,
+				14BE67691C5C0FF700361A6D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14BE677D1C5C0FF800361A6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14BE67861C5C0FF800361A6D /* Flightsim_CardboardTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14BE67881C5C0FF800361A6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14BE67911C5C0FF800361A6D /* Flightsim_CardboardUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		14BE67831C5C0FF800361A6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 14BE67631C5C0FF700361A6D /* Flightsim Cardboard */;
+			targetProxy = 14BE67821C5C0FF800361A6D /* PBXContainerItemProxy */;
+		};
+		14BE678E1C5C0FF800361A6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 14BE67631C5C0FF700361A6D /* Flightsim Cardboard */;
+			targetProxy = 14BE678D1C5C0FF800361A6D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		14BE67741C5C0FF700361A6D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				14BE67751C5C0FF700361A6D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		14BE67791C5C0FF700361A6D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				14BE677A1C5C0FF700361A6D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		14BE67931C5C0FF800361A6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		14BE67941C5C0FF800361A6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		14BE67961C5C0FF800361A6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Flightsim Cardboard/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "xyz.seanp.Flightsim-Cardboard";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		14BE67971C5C0FF800361A6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Flightsim Cardboard/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "xyz.seanp.Flightsim-Cardboard";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		14BE67991C5C0FF800361A6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = "Flightsim CardboardTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "xyz.seanp.Flightsim-CardboardTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flightsim Cardboard.app/Flightsim Cardboard";
+			};
+			name = Debug;
+		};
+		14BE679A1C5C0FF800361A6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Flightsim CardboardTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "xyz.seanp.Flightsim-CardboardTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flightsim Cardboard.app/Flightsim Cardboard";
+			};
+			name = Release;
+		};
+		14BE679C1C5C0FF800361A6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = "Flightsim CardboardUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "xyz.seanp.Flightsim-CardboardUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Flightsim Cardboard";
+			};
+			name = Debug;
+		};
+		14BE679D1C5C0FF800361A6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Flightsim CardboardUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "xyz.seanp.Flightsim-CardboardUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Flightsim Cardboard";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		14BE675F1C5C0FF700361A6D /* Build configuration list for PBXProject "Flightsim Cardboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14BE67931C5C0FF800361A6D /* Debug */,
+				14BE67941C5C0FF800361A6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		14BE67951C5C0FF800361A6D /* Build configuration list for PBXNativeTarget "Flightsim Cardboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14BE67961C5C0FF800361A6D /* Debug */,
+				14BE67971C5C0FF800361A6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		14BE67981C5C0FF800361A6D /* Build configuration list for PBXNativeTarget "Flightsim CardboardTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14BE67991C5C0FF800361A6D /* Debug */,
+				14BE679A1C5C0FF800361A6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		14BE679B1C5C0FF800361A6D /* Build configuration list for PBXNativeTarget "Flightsim CardboardUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14BE679C1C5C0FF800361A6D /* Debug */,
+				14BE679D1C5C0FF800361A6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 14BE675C1C5C0FF700361A6D /* Project object */;
+}
