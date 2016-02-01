@@ -16,6 +16,7 @@
 		14BE67861C5C0FF800361A6D /* Flightsim_CardboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BE67851C5C0FF800361A6D /* Flightsim_CardboardTests.m */; };
 		14BE67911C5C0FF800361A6D /* Flightsim_CardboardUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BE67901C5C0FF800361A6D /* Flightsim_CardboardUITests.m */; };
 		14BE67A11C5C169200361A6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14BE67A01C5C169200361A6D /* LaunchScreen.storyboard */; };
+		14DE948E1C5FF2BE0076DDBC /* CardboardSDK in Resources */ = {isa = PBXBuildFile; fileRef = 14DE948D1C5FF2BE0076DDBC /* CardboardSDK */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		14BE67901C5C0FF800361A6D /* Flightsim_CardboardUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Flightsim_CardboardUITests.m; sourceTree = "<group>"; };
 		14BE67921C5C0FF800361A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14BE67A01C5C169200361A6D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		14DE948D1C5FF2BE0076DDBC /* CardboardSDK */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CardboardSDK; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		14BE675B1C5C0FF700361A6D = {
 			isa = PBXGroup;
 			children = (
+				14DE948D1C5FF2BE0076DDBC /* CardboardSDK */,
 				14BE67661C5C0FF700361A6D /* Flightsim Cardboard */,
 				14BE67841C5C0FF800361A6D /* Flightsim CardboardTests */,
 				14BE678F1C5C0FF800361A6D /* Flightsim CardboardUITests */,
@@ -252,6 +255,7 @@
 				14BE67701C5C0FF700361A6D /* Shader.vsh in Resources */,
 				14BE67A11C5C169200361A6D /* LaunchScreen.storyboard in Resources */,
 				14BE67781C5C0FF700361A6D /* Assets.xcassets in Resources */,
+				14DE948E1C5FF2BE0076DDBC /* CardboardSDK in Resources */,
 				14BE676E1C5C0FF700361A6D /* Shader.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,6 +497,7 @@
 				14BE67971C5C0FF800361A6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		14BE67981C5C0FF800361A6D /* Build configuration list for PBXNativeTarget "Flightsim CardboardTests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +506,7 @@
 				14BE679A1C5C0FF800361A6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		14BE679B1C5C0FF800361A6D /* Build configuration list for PBXNativeTarget "Flightsim CardboardUITests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +515,7 @@
 				14BE679D1C5C0FF800361A6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
