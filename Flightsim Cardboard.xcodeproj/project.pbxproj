@@ -12,11 +12,10 @@
 		14BE676E1C5C0FF700361A6D /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 14BE676D1C5C0FF700361A6D /* Shader.fsh */; };
 		14BE67701C5C0FF700361A6D /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 14BE676F1C5C0FF700361A6D /* Shader.vsh */; };
 		14BE67731C5C0FF700361A6D /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BE67721C5C0FF700361A6D /* GameViewController.m */; };
-		14BE67761C5C0FF700361A6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14BE67741C5C0FF700361A6D /* Main.storyboard */; };
 		14BE67781C5C0FF700361A6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14BE67771C5C0FF700361A6D /* Assets.xcassets */; };
-		14BE677B1C5C0FF700361A6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14BE67791C5C0FF700361A6D /* LaunchScreen.storyboard */; };
 		14BE67861C5C0FF800361A6D /* Flightsim_CardboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BE67851C5C0FF800361A6D /* Flightsim_CardboardTests.m */; };
 		14BE67911C5C0FF800361A6D /* Flightsim_CardboardUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BE67901C5C0FF800361A6D /* Flightsim_CardboardUITests.m */; };
+		14BE67A11C5C169200361A6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14BE67A01C5C169200361A6D /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,9 +44,7 @@
 		14BE676F1C5C0FF700361A6D /* Shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; };
 		14BE67711C5C0FF700361A6D /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		14BE67721C5C0FF700361A6D /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
-		14BE67751C5C0FF700361A6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14BE67771C5C0FF700361A6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		14BE677A1C5C0FF700361A6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14BE677C1C5C0FF700361A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14BE67811C5C0FF800361A6D /* Flightsim CardboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flightsim CardboardTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14BE67851C5C0FF800361A6D /* Flightsim_CardboardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Flightsim_CardboardTests.m; sourceTree = "<group>"; };
@@ -55,6 +52,7 @@
 		14BE678C1C5C0FF800361A6D /* Flightsim CardboardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flightsim CardboardUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14BE67901C5C0FF800361A6D /* Flightsim_CardboardUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Flightsim_CardboardUITests.m; sourceTree = "<group>"; };
 		14BE67921C5C0FF800361A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14BE67A01C5C169200361A6D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,10 +109,7 @@
 				14BE676F1C5C0FF700361A6D /* Shader.vsh */,
 				14BE67711C5C0FF700361A6D /* GameViewController.h */,
 				14BE67721C5C0FF700361A6D /* GameViewController.m */,
-				14BE67741C5C0FF700361A6D /* Main.storyboard */,
 				14BE67771C5C0FF700361A6D /* Assets.xcassets */,
-				14BE67791C5C0FF700361A6D /* LaunchScreen.storyboard */,
-				14BE677C1C5C0FF700361A6D /* Info.plist */,
 				14BE67671C5C0FF700361A6D /* Supporting Files */,
 			);
 			path = "Flightsim Cardboard";
@@ -123,7 +118,9 @@
 		14BE67671C5C0FF700361A6D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				14BE677C1C5C0FF700361A6D /* Info.plist */,
 				14BE67681C5C0FF700361A6D /* main.m */,
+				14BE67A01C5C169200361A6D /* LaunchScreen.storyboard */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -252,10 +249,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14BE67761C5C0FF700361A6D /* Main.storyboard in Resources */,
 				14BE67701C5C0FF700361A6D /* Shader.vsh in Resources */,
+				14BE67A11C5C169200361A6D /* LaunchScreen.storyboard in Resources */,
 				14BE67781C5C0FF700361A6D /* Assets.xcassets in Resources */,
-				14BE677B1C5C0FF700361A6D /* LaunchScreen.storyboard in Resources */,
 				14BE676E1C5C0FF700361A6D /* Shader.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,25 +314,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		14BE67741C5C0FF700361A6D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				14BE67751C5C0FF700361A6D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		14BE67791C5C0FF700361A6D /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				14BE677A1C5C0FF700361A6D /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		14BE67931C5C0FF800361A6D /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -398,6 +375,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -422,10 +400,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Flightsim Cardboard/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "xyz.seanp.Flightsim-Cardboard";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -433,10 +415,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Flightsim Cardboard/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "xyz.seanp.Flightsim-Cardboard";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
