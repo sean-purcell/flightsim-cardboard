@@ -244,28 +244,28 @@ GLfloat gCubeVertexData[216] =
 	glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
 	
 	// Draw each cube
-	[self drawCubeWithEye: eye andPerspective: perspective andModel: _modelViewMatrix1];
-	[self drawCubeWithEye: eye andPerspective: perspective andModel: _modelViewMatrix2];
+	[self drawCubeWithEye: eye andPerspective: perspective andModel: _modelViewMatrix1 andColor: GLKVector3Make(0.4f, 0.4f, 1.0f)];
+	[self drawCubeWithEye: eye andPerspective: perspective andModel: _modelViewMatrix2 andColor: GLKVector3Make(1.0f, 0.4f, 0.4f)];
 	
 	glBindVertexArrayOES(0);
 	glUseProgram(0);
 }
 
-- (void)drawCubeWithEye:(CBDEye *) eye andPerspective:(GLKMatrix4) perp andModel:(GLKMatrix4) model
+- (void)drawCubeWithEye:(CBDEye *) eye andPerspective:(GLKMatrix4) perp andModel:(GLKMatrix4) model andColor:(GLKVector3) color
 {
-	//GLKMatrix4 view = GLKMatrix4Multiply([eye eyeViewMatrix], model);
-	GLKMatrix4 view = model;
+	GLKMatrix4 view = GLKMatrix4Multiply([eye eyeViewMatrix], model);
+
+#if (TARGET_IPHONE_SIMULATOR)
+	// If running on the simulator, don't apply the eye matrix
+	view = model;
+#endif
 	
 	GLKMatrix3 normal = GLKMatrix3InvertAndTranspose(GLKMatrix4GetMatrix3(view), NULL);
 	GLKMatrix4 projectView = GLKMatrix4Multiply(perp, view);
 	
 	glUniformMatrix4fv(_modelViewProjectionMatrixLoc, 1, 0, projectView.m);
 	glUniformMatrix3fv(_normalMatrixLoc, 1, 0, normal.m);
-	
-	DLog(@"%ld %@", eye.type, NSStringFromGLKMatrix4(projectView));
-	
-	GLKVector4 testP = GLKVector4Make(0.0f, 0.0f, -0.5f, 1.0f);
-	DLog(@"%@", NSStringFromGLKVector4(GLKMatrix4MultiplyVector4(projectView, testP)));
+	glUniform3f(_colorLoc, color.r, color.g, color.b);
 	
 	glDrawArrays(GL_TRIANGLES, 0, 36);
 	
