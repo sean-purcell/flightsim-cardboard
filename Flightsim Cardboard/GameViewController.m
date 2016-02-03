@@ -14,6 +14,17 @@
 
 #define BUFFER_OFFSET(i) ((char *)NULL + (i))
 
+void printMatrix(int line, GLKMatrix4 m) {
+	NSMutableString *s = [NSMutableString stringWithString:@""];
+	for(int i = 0; i < 4; i++) {
+		for(int j = 0; j < 4; j++) {
+			[s appendString: [NSString stringWithFormat:@"%f ", m.m[i*4+j]]];
+		}
+	}
+	
+	NSLog(@"%d: %@", line, s)
+}
+
 // Uniform index.
 enum
 {
@@ -222,24 +233,43 @@ GLfloat gCubeVertexData[216] =
 	glClearColor(0.65f, 0.65f, 0.65f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
+	//DLog(@"%ld %@", eye.type, NSStringFromGLKMatrix4([eye eyeViewMatrix]));
+
 	GLCheckForError();
 	
 	GLKMatrix4 perspective = [eye perspectiveMatrixWithZNear:0.1f zFar:100.0f];
 	
+	glUseProgram(_program);
+	glBindVertexArrayOES(_vertexArray);
+	glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
+	
 	// Draw each cube
 	[self drawCubeWithEye: eye andPerspective: perspective andModel: _modelViewMatrix1];
 	[self drawCubeWithEye: eye andPerspective: perspective andModel: _modelViewMatrix2];
+	
+	glBindVertexArrayOES(0);
+	glUseProgram(0);
 }
 
 - (void)drawCubeWithEye:(CBDEye *) eye andPerspective:(GLKMatrix4) perp andModel:(GLKMatrix4) model
 {
-	GLKMatrix4 view = GLKMatrix4Multiply([eye eyeViewMatrix], model);
+	//GLKMatrix4 view = GLKMatrix4Multiply([eye eyeViewMatrix], model);
+	GLKMatrix4 view = model;
 	
 	GLKMatrix3 normal = GLKMatrix3InvertAndTranspose(GLKMatrix4GetMatrix3(view), NULL);
 	GLKMatrix4 projectView = GLKMatrix4Multiply(perp, view);
 	
 	glUniformMatrix4fv(_modelViewProjectionMatrixLoc, 1, 0, projectView.m);
-	glUniformMatrix4fv(_normalMatrixLoc, 1, 0, normal.m);
+	glUniformMatrix3fv(_normalMatrixLoc, 1, 0, normal.m);
+	
+	DLog(@"%ld %@", eye.type, NSStringFromGLKMatrix4(projectView));
+	
+	GLKVector4 testP = GLKVector4Make(0.0f, 0.0f, -0.5f, 1.0f);
+	DLog(@"%@", NSStringFromGLKVector4(GLKMatrix4MultiplyVector4(projectView, testP)));
+	
+	glDrawArrays(GL_TRIANGLES, 0, 36);
+	
+	GLCheckForError();
 }
 
 - (void)finishFrameWithViewportRect:(CGRect)viewPort
