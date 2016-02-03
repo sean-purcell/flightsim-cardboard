@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <GLKit/GLKit.h>
 
-@interface GameViewController : GLKViewController
+#import "CardboardSDK.h"
+
+@interface GameViewController : CBDViewController
 
 @end

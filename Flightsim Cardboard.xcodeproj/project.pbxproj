@@ -16,7 +16,27 @@
 		14BE67861C5C0FF800361A6D /* Flightsim_CardboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BE67851C5C0FF800361A6D /* Flightsim_CardboardTests.m */; };
 		14BE67911C5C0FF800361A6D /* Flightsim_CardboardUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BE67901C5C0FF800361A6D /* Flightsim_CardboardUITests.m */; };
 		14BE67A11C5C169200361A6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14BE67A01C5C169200361A6D /* LaunchScreen.storyboard */; };
-		14DE948E1C5FF2BE0076DDBC /* CardboardSDK in Resources */ = {isa = PBXBuildFile; fileRef = 14DE948D1C5FF2BE0076DDBC /* CardboardSDK */; };
+		14DE94981C60307B0076DDBC /* CBDStereoGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DE94931C60307B0076DDBC /* CBDStereoGLView.m */; };
+		14DE94991C60307B0076DDBC /* CBDViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DE94951C60307B0076DDBC /* CBDViewController.mm */; };
+		14DE949F1C603ED40076DDBC /* GLHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DE949E1C603ED40076DDBC /* GLHelpers.m */; };
+		14DE94B81C603EEB0076DDBC /* CardboardDeviceParams.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DE94A21C603EEB0076DDBC /* CardboardDeviceParams.mm */; };
+		14DE94B91C603EEB0076DDBC /* CardboardUnity.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DE94A41C603EEB0076DDBC /* CardboardUnity.mm */; };
+		14DE94BA1C603EEB0076DDBC /* Distortion.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DE94A61C603EEB0076DDBC /* Distortion.mm */; };
+		14DE94BB1C603EEB0076DDBC /* DistortionRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DE94A81C603EEB0076DDBC /* DistortionRenderer.mm */; };
+		14DE94BC1C603EEB0076DDBC /* Eye.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DE94AA1C603EEB0076DDBC /* Eye.mm */; };
+		14DE94BD1C603EEB0076DDBC /* FieldOfView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DE94AC1C603EEB0076DDBC /* FieldOfView.mm */; };
+		14DE94BE1C603EEB0076DDBC /* GLStateBackup.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DE94AE1C603EEB0076DDBC /* GLStateBackup.mm */; };
+		14DE94BF1C603EEB0076DDBC /* HeadMountedDisplay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DE94B01C603EEB0076DDBC /* HeadMountedDisplay.mm */; };
+		14DE94C01C603EEB0076DDBC /* HeadTransform.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DE94B21C603EEB0076DDBC /* HeadTransform.mm */; };
+		14DE94C11C603EEB0076DDBC /* ScreenParams.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DE94B41C603EEB0076DDBC /* ScreenParams.mm */; };
+		14DE94C31C603EEB0076DDBC /* Viewport.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DE94B71C603EEB0076DDBC /* Viewport.mm */; };
+		14DE94CA1C603EFA0076DDBC /* HeadTracker.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DE94C61C603EFA0076DDBC /* HeadTracker.mm */; };
+		14DE94CC1C603EFA0076DDBC /* MagnetSensor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DE94C91C603EFA0076DDBC /* MagnetSensor.mm */; };
+		14DE94D61C603F120076DDBC /* Matrix3x3d.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DE94CF1C603F120076DDBC /* Matrix3x3d.mm */; };
+		14DE94D71C603F120076DDBC /* OrientationEKF.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DE94D11C603F120076DDBC /* OrientationEKF.mm */; };
+		14DE94D81C603F120076DDBC /* SO3Util.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DE94D31C603F120076DDBC /* SO3Util.mm */; };
+		14DE94D91C603F120076DDBC /* Vector3d.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DE94D51C603F120076DDBC /* Vector3d.mm */; };
+		14DE94DB1C618AEC0076DDBC /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DE94DA1C618AEC0076DDBC /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +74,49 @@
 		14BE67901C5C0FF800361A6D /* Flightsim_CardboardUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Flightsim_CardboardUITests.m; sourceTree = "<group>"; };
 		14BE67921C5C0FF800361A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14BE67A01C5C169200361A6D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		14DE948D1C5FF2BE0076DDBC /* CardboardSDK */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CardboardSDK; sourceTree = "<group>"; };
+		14DE94911C60307B0076DDBC /* CardboardSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardboardSDK.h; path = CardboardSDK/CardboardSDK.h; sourceTree = "<group>"; };
+		14DE94921C60307B0076DDBC /* CBDStereoGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBDStereoGLView.h; path = CardboardSDK/CBDStereoGLView.h; sourceTree = "<group>"; };
+		14DE94931C60307B0076DDBC /* CBDStereoGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CBDStereoGLView.m; path = CardboardSDK/CBDStereoGLView.m; sourceTree = "<group>"; };
+		14DE94941C60307B0076DDBC /* CBDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBDViewController.h; path = CardboardSDK/CBDViewController.h; sourceTree = "<group>"; };
+		14DE94951C60307B0076DDBC /* CBDViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CBDViewController.mm; path = CardboardSDK/CBDViewController.mm; sourceTree = "<group>"; };
+		14DE949C1C603ED40076DDBC /* DebugUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebugUtils.h; path = CardboardSDK/Misc/DebugUtils.h; sourceTree = "<group>"; };
+		14DE949D1C603ED40076DDBC /* GLHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLHelpers.h; path = CardboardSDK/Misc/GLHelpers.h; sourceTree = "<group>"; };
+		14DE949E1C603ED40076DDBC /* GLHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLHelpers.m; path = CardboardSDK/Misc/GLHelpers.m; sourceTree = "<group>"; };
+		14DE94A11C603EEB0076DDBC /* CardboardDeviceParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardboardDeviceParams.h; path = CardboardSDK/Cardboard/CardboardDeviceParams.h; sourceTree = "<group>"; };
+		14DE94A21C603EEB0076DDBC /* CardboardDeviceParams.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CardboardDeviceParams.mm; path = CardboardSDK/Cardboard/CardboardDeviceParams.mm; sourceTree = "<group>"; };
+		14DE94A31C603EEB0076DDBC /* CardboardUnity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardboardUnity.h; path = CardboardSDK/Cardboard/CardboardUnity.h; sourceTree = "<group>"; };
+		14DE94A41C603EEB0076DDBC /* CardboardUnity.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CardboardUnity.mm; path = CardboardSDK/Cardboard/CardboardUnity.mm; sourceTree = "<group>"; };
+		14DE94A51C603EEB0076DDBC /* Distortion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Distortion.h; path = CardboardSDK/Cardboard/Distortion.h; sourceTree = "<group>"; };
+		14DE94A61C603EEB0076DDBC /* Distortion.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Distortion.mm; path = CardboardSDK/Cardboard/Distortion.mm; sourceTree = "<group>"; };
+		14DE94A71C603EEB0076DDBC /* DistortionRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DistortionRenderer.h; path = CardboardSDK/Cardboard/DistortionRenderer.h; sourceTree = "<group>"; };
+		14DE94A81C603EEB0076DDBC /* DistortionRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = DistortionRenderer.mm; path = CardboardSDK/Cardboard/DistortionRenderer.mm; sourceTree = "<group>"; };
+		14DE94A91C603EEB0076DDBC /* Eye.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Eye.h; path = CardboardSDK/Cardboard/Eye.h; sourceTree = "<group>"; };
+		14DE94AA1C603EEB0076DDBC /* Eye.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Eye.mm; path = CardboardSDK/Cardboard/Eye.mm; sourceTree = "<group>"; };
+		14DE94AB1C603EEB0076DDBC /* FieldOfView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FieldOfView.h; path = CardboardSDK/Cardboard/FieldOfView.h; sourceTree = "<group>"; };
+		14DE94AC1C603EEB0076DDBC /* FieldOfView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FieldOfView.mm; path = CardboardSDK/Cardboard/FieldOfView.mm; sourceTree = "<group>"; };
+		14DE94AD1C603EEB0076DDBC /* GLStateBackup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLStateBackup.h; path = CardboardSDK/Cardboard/GLStateBackup.h; sourceTree = "<group>"; };
+		14DE94AE1C603EEB0076DDBC /* GLStateBackup.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GLStateBackup.mm; path = CardboardSDK/Cardboard/GLStateBackup.mm; sourceTree = "<group>"; };
+		14DE94AF1C603EEB0076DDBC /* HeadMountedDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeadMountedDisplay.h; path = CardboardSDK/Cardboard/HeadMountedDisplay.h; sourceTree = "<group>"; };
+		14DE94B01C603EEB0076DDBC /* HeadMountedDisplay.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = HeadMountedDisplay.mm; path = CardboardSDK/Cardboard/HeadMountedDisplay.mm; sourceTree = "<group>"; };
+		14DE94B11C603EEB0076DDBC /* HeadTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeadTransform.h; path = CardboardSDK/Cardboard/HeadTransform.h; sourceTree = "<group>"; };
+		14DE94B21C603EEB0076DDBC /* HeadTransform.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = HeadTransform.mm; path = CardboardSDK/Cardboard/HeadTransform.mm; sourceTree = "<group>"; };
+		14DE94B31C603EEB0076DDBC /* ScreenParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScreenParams.h; path = CardboardSDK/Cardboard/ScreenParams.h; sourceTree = "<group>"; };
+		14DE94B41C603EEB0076DDBC /* ScreenParams.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ScreenParams.mm; path = CardboardSDK/Cardboard/ScreenParams.mm; sourceTree = "<group>"; };
+		14DE94B61C603EEB0076DDBC /* Viewport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Viewport.h; path = CardboardSDK/Cardboard/Viewport.h; sourceTree = "<group>"; };
+		14DE94B71C603EEB0076DDBC /* Viewport.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Viewport.mm; path = CardboardSDK/Cardboard/Viewport.mm; sourceTree = "<group>"; };
+		14DE94C51C603EFA0076DDBC /* HeadTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeadTracker.h; path = CardboardSDK/Cardboard/Sensors/HeadTracker.h; sourceTree = "<group>"; };
+		14DE94C61C603EFA0076DDBC /* HeadTracker.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = HeadTracker.mm; path = CardboardSDK/Cardboard/Sensors/HeadTracker.mm; sourceTree = "<group>"; };
+		14DE94C81C603EFA0076DDBC /* MagnetSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MagnetSensor.h; path = CardboardSDK/Cardboard/Sensors/MagnetSensor.h; sourceTree = "<group>"; };
+		14DE94C91C603EFA0076DDBC /* MagnetSensor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MagnetSensor.mm; path = CardboardSDK/Cardboard/Sensors/MagnetSensor.mm; sourceTree = "<group>"; };
+		14DE94CE1C603F120076DDBC /* Matrix3x3d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Matrix3x3d.h; path = CardboardSDK/Cardboard/Sensors/Internal/Matrix3x3d.h; sourceTree = "<group>"; };
+		14DE94CF1C603F120076DDBC /* Matrix3x3d.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Matrix3x3d.mm; path = CardboardSDK/Cardboard/Sensors/Internal/Matrix3x3d.mm; sourceTree = "<group>"; };
+		14DE94D01C603F120076DDBC /* OrientationEKF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrientationEKF.h; path = CardboardSDK/Cardboard/Sensors/Internal/OrientationEKF.h; sourceTree = "<group>"; };
+		14DE94D11C603F120076DDBC /* OrientationEKF.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = OrientationEKF.mm; path = CardboardSDK/Cardboard/Sensors/Internal/OrientationEKF.mm; sourceTree = "<group>"; };
+		14DE94D21C603F120076DDBC /* SO3Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SO3Util.h; path = CardboardSDK/Cardboard/Sensors/Internal/SO3Util.h; sourceTree = "<group>"; };
+		14DE94D31C603F120076DDBC /* SO3Util.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SO3Util.mm; path = CardboardSDK/Cardboard/Sensors/Internal/SO3Util.mm; sourceTree = "<group>"; };
+		14DE94D41C603F120076DDBC /* Vector3d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector3d.h; path = CardboardSDK/Cardboard/Sensors/Internal/Vector3d.h; sourceTree = "<group>"; };
+		14DE94D51C603F120076DDBC /* Vector3d.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Vector3d.mm; path = CardboardSDK/Cardboard/Sensors/Internal/Vector3d.mm; sourceTree = "<group>"; };
+		14DE94DA1C618AEC0076DDBC /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14DE94DB1C618AEC0076DDBC /* CoreMotion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,7 +148,8 @@
 		14BE675B1C5C0FF700361A6D = {
 			isa = PBXGroup;
 			children = (
-				14DE948D1C5FF2BE0076DDBC /* CardboardSDK */,
+				14DE94DC1C618B110076DDBC /* Frameworks */,
+				14DE948F1C6030680076DDBC /* CardboardSDK */,
 				14BE67661C5C0FF700361A6D /* Flightsim Cardboard */,
 				14BE67841C5C0FF800361A6D /* Flightsim CardboardTests */,
 				14BE678F1C5C0FF800361A6D /* Flightsim CardboardUITests */,
@@ -144,6 +208,95 @@
 				14BE67921C5C0FF800361A6D /* Info.plist */,
 			);
 			path = "Flightsim CardboardUITests";
+			sourceTree = "<group>";
+		};
+		14DE948F1C6030680076DDBC /* CardboardSDK */ = {
+			isa = PBXGroup;
+			children = (
+				14DE94A01C603EDE0076DDBC /* Cardboard */,
+				14DE949B1C603ECB0076DDBC /* Misc */,
+				14DE94911C60307B0076DDBC /* CardboardSDK.h */,
+				14DE94921C60307B0076DDBC /* CBDStereoGLView.h */,
+				14DE94931C60307B0076DDBC /* CBDStereoGLView.m */,
+				14DE94941C60307B0076DDBC /* CBDViewController.h */,
+				14DE94951C60307B0076DDBC /* CBDViewController.mm */,
+			);
+			name = CardboardSDK;
+			sourceTree = "<group>";
+		};
+		14DE949B1C603ECB0076DDBC /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				14DE949C1C603ED40076DDBC /* DebugUtils.h */,
+				14DE949D1C603ED40076DDBC /* GLHelpers.h */,
+				14DE949E1C603ED40076DDBC /* GLHelpers.m */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
+		14DE94A01C603EDE0076DDBC /* Cardboard */ = {
+			isa = PBXGroup;
+			children = (
+				14DE94C41C603EF30076DDBC /* Sensors */,
+				14DE94A11C603EEB0076DDBC /* CardboardDeviceParams.h */,
+				14DE94A21C603EEB0076DDBC /* CardboardDeviceParams.mm */,
+				14DE94A31C603EEB0076DDBC /* CardboardUnity.h */,
+				14DE94A41C603EEB0076DDBC /* CardboardUnity.mm */,
+				14DE94A51C603EEB0076DDBC /* Distortion.h */,
+				14DE94A61C603EEB0076DDBC /* Distortion.mm */,
+				14DE94A71C603EEB0076DDBC /* DistortionRenderer.h */,
+				14DE94A81C603EEB0076DDBC /* DistortionRenderer.mm */,
+				14DE94A91C603EEB0076DDBC /* Eye.h */,
+				14DE94AA1C603EEB0076DDBC /* Eye.mm */,
+				14DE94AB1C603EEB0076DDBC /* FieldOfView.h */,
+				14DE94AC1C603EEB0076DDBC /* FieldOfView.mm */,
+				14DE94AD1C603EEB0076DDBC /* GLStateBackup.h */,
+				14DE94AE1C603EEB0076DDBC /* GLStateBackup.mm */,
+				14DE94AF1C603EEB0076DDBC /* HeadMountedDisplay.h */,
+				14DE94B01C603EEB0076DDBC /* HeadMountedDisplay.mm */,
+				14DE94B11C603EEB0076DDBC /* HeadTransform.h */,
+				14DE94B21C603EEB0076DDBC /* HeadTransform.mm */,
+				14DE94B31C603EEB0076DDBC /* ScreenParams.h */,
+				14DE94B41C603EEB0076DDBC /* ScreenParams.mm */,
+				14DE94B61C603EEB0076DDBC /* Viewport.h */,
+				14DE94B71C603EEB0076DDBC /* Viewport.mm */,
+			);
+			name = Cardboard;
+			sourceTree = "<group>";
+		};
+		14DE94C41C603EF30076DDBC /* Sensors */ = {
+			isa = PBXGroup;
+			children = (
+				14DE94CD1C603F090076DDBC /* Internal */,
+				14DE94C51C603EFA0076DDBC /* HeadTracker.h */,
+				14DE94C61C603EFA0076DDBC /* HeadTracker.mm */,
+				14DE94C81C603EFA0076DDBC /* MagnetSensor.h */,
+				14DE94C91C603EFA0076DDBC /* MagnetSensor.mm */,
+			);
+			name = Sensors;
+			sourceTree = "<group>";
+		};
+		14DE94CD1C603F090076DDBC /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				14DE94CE1C603F120076DDBC /* Matrix3x3d.h */,
+				14DE94CF1C603F120076DDBC /* Matrix3x3d.mm */,
+				14DE94D01C603F120076DDBC /* OrientationEKF.h */,
+				14DE94D11C603F120076DDBC /* OrientationEKF.mm */,
+				14DE94D21C603F120076DDBC /* SO3Util.h */,
+				14DE94D31C603F120076DDBC /* SO3Util.mm */,
+				14DE94D41C603F120076DDBC /* Vector3d.h */,
+				14DE94D51C603F120076DDBC /* Vector3d.mm */,
+			);
+			name = Internal;
+			sourceTree = "<group>";
+		};
+		14DE94DC1C618B110076DDBC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				14DE94DA1C618AEC0076DDBC /* CoreMotion.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,7 +408,6 @@
 				14BE67701C5C0FF700361A6D /* Shader.vsh in Resources */,
 				14BE67A11C5C169200361A6D /* LaunchScreen.storyboard in Resources */,
 				14BE67781C5C0FF700361A6D /* Assets.xcassets in Resources */,
-				14DE948E1C5FF2BE0076DDBC /* CardboardSDK in Resources */,
 				14BE676E1C5C0FF700361A6D /* Shader.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,9 +433,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14DE94D61C603F120076DDBC /* Matrix3x3d.mm in Sources */,
+				14DE94CA1C603EFA0076DDBC /* HeadTracker.mm in Sources */,
 				14BE676C1C5C0FF700361A6D /* AppDelegate.m in Sources */,
+				14DE94BF1C603EEB0076DDBC /* HeadMountedDisplay.mm in Sources */,
+				14DE94BB1C603EEB0076DDBC /* DistortionRenderer.mm in Sources */,
+				14DE94981C60307B0076DDBC /* CBDStereoGLView.m in Sources */,
+				14DE94991C60307B0076DDBC /* CBDViewController.mm in Sources */,
+				14DE94BC1C603EEB0076DDBC /* Eye.mm in Sources */,
+				14DE94BA1C603EEB0076DDBC /* Distortion.mm in Sources */,
+				14DE94D81C603F120076DDBC /* SO3Util.mm in Sources */,
+				14DE94BE1C603EEB0076DDBC /* GLStateBackup.mm in Sources */,
+				14DE94D91C603F120076DDBC /* Vector3d.mm in Sources */,
+				14DE94D71C603F120076DDBC /* OrientationEKF.mm in Sources */,
 				14BE67731C5C0FF700361A6D /* GameViewController.m in Sources */,
+				14DE94B91C603EEB0076DDBC /* CardboardUnity.mm in Sources */,
+				14DE94B81C603EEB0076DDBC /* CardboardDeviceParams.mm in Sources */,
+				14DE94C11C603EEB0076DDBC /* ScreenParams.mm in Sources */,
+				14DE949F1C603ED40076DDBC /* GLHelpers.m in Sources */,
+				14DE94BD1C603EEB0076DDBC /* FieldOfView.mm in Sources */,
+				14DE94C31C603EEB0076DDBC /* Viewport.mm in Sources */,
+				14DE94CC1C603EFA0076DDBC /* MagnetSensor.mm in Sources */,
 				14BE67691C5C0FF700361A6D /* main.m in Sources */,
+				14DE94C01C603EEB0076DDBC /* HeadTransform.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,7 +494,7 @@
 		14BE67931C5C0FF800361A6D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -365,7 +537,7 @@
 		14BE67941C5C0FF800361A6D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
