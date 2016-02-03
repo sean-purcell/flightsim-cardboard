@@ -202,6 +202,12 @@ GLfloat gCubeVertexData[216] =
 {
 }
 
+- (void)updateWithDt:(float)dt andPosition:(GLKVector3) pos andHeadView:(GLKMatrix4)headView
+{
+	
+}
+
+/*
 - (void)prepareNewFrameWithHeadViewMatrix:(GLKMatrix4)headViewMatrix
 {
 	_headView = headViewMatrix;
@@ -227,7 +233,8 @@ GLfloat gCubeVertexData[216] =
 {
 	_rotation += timeSinceLastUpdate * 0.5f;
 }
-
+*/
+ 
 - (void)drawEyeWithEye:(CBDEye *)eye
 {
 	glClearColor(0.65f, 0.65f, 0.65f, 1.0f);
@@ -319,8 +326,9 @@ GLfloat gCubeVertexData[216] =
 
 - (void)prepareNewFrameWithHeadViewMatrix:(GLKMatrix4)headViewMatrix
 {
-	[self.gameRenderer prepareNewFrameWithHeadViewMatrix: headViewMatrix];
-	[self.gameRenderer updateRotation: self.timeSinceLastUpdate];
+	[self.gameRenderer updateWithDt: self.timeSinceLastUpdate
+						andPosition: GLKVector3Make(0.0f, 100.0f, 0.0f)
+						andHeadView: headViewMatrix];
 }
 
 - (void)drawEyeWithEye:(CBDEye *)eye
