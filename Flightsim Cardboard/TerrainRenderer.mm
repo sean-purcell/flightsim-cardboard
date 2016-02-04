@@ -102,6 +102,8 @@ typedef std::pair<int,int> IntPair;
 	[self setupProgram];
 	[self setupVAOS];
 	
+	_position = GLKVector3Make(0.0, 0.0, 0.0);
+	
 	glEnable(GL_DEPTH_TEST);
 	
 	GLCheckForError();
@@ -172,8 +174,17 @@ typedef std::pair<int,int> IntPair;
 - (void)updateWithDt:(float)dt andPosition:(GLKVector3) pos andHeadView:(GLKMatrix4)headView
 {
 	NSLog(@"Updating with dt %f", dt);
-	_position = pos;
-	[_chunkManager updateWithPos: pos];
+	
+	float s = 500 * dt;
+	GLKVector3 forw = GLKMatrix4MultiplyVector3(headView, GLKVector3Make(0, 0, s));
+	NSLog(@"Forward: %@", NSStringFromGLKVector3(forw));
+	
+	_position = GLKVector3Add(_position, forw);
+	if(_position.x != _position.x) {
+		_position = GLKVector3Make(0.0, 200.0, 0.0);
+	}
+	NSLog(@"Position: %@", NSStringFromGLKVector3(_position));
+	[_chunkManager updateWithPos: _position];
 }
 
 - (void)drawEyeWithEye:(CBDEye *)eye
@@ -186,9 +197,11 @@ typedef std::pair<int,int> IntPair;
 	
 	GLCheckForError();
 	
-	GLKMatrix4 perspective = [eye perspectiveMatrixWithZNear:0.1f zFar:1e10f];
+	GLKMatrix4 perspective = [eye perspectiveMatrixWithZNear:10.0f zFar: 2 * CHUNKSAROUND * CHUNKWIDTH];
 	
-	GLKMatrix4 view = GLKMatrix4MakeTranslation(-_position.x, -_position.y, -_position.z);
+	GLKMatrix4 view = GLKMatrix4Identity;
+	view.m[2 * 4 + 2] = -1;
+	view = GLKMatrix4Translate(view, -_position.x, -_position.y, -_position.z);
 	
 #if !(TARGET_IPHONE_SIMULATOR)
 	view = GLKMatrix4Multiply([eye eyeViewMatrix], view);
@@ -227,7 +240,7 @@ typedef std::pair<int,int> IntPair;
 
 - (void)assignNoiseParams
 {
-	_seed = arc4random();
+	_seed = arc4random() % 65536;
 	NSLog(@"seed: %d", _seed);
 	_octaves = 10;
 	_frequency = 0.064e-2;

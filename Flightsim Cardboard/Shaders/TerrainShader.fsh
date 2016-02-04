@@ -13,7 +13,7 @@ varying float dist;
 varying vec3 Position;
 
 uniform vec3 LIGHT_DIR;
-uniform vec3 FOG_COLOR;
+uniform vec3 SKY_COLOR;
 uniform float HORIZON;
 
 float coeff(float x) {
@@ -26,10 +26,10 @@ float sigmoid(float x) {
 
 void main()
 {
-	vec3 one = vec3(1, 1, 1);
-	vec3 tmp = 0.5 * one;
-	tmp += 0.5 * one * (1.2 * sigmoid(Position.y / 480.0));
+	float tmp = 0.5;
+	tmp += 0.5 * (1.2 * sigmoid(Position.y / 480.0));
+	//tmp += 0.5 * Position.y / 480.0;
 	float alpha = coeff(dist);
-	alpha = min(alpha, 1.0);
-	gl_FragColor = vec4(alpha * FOG_COLOR + (1.0-alpha) * tmp * Color, 1.0);
+	alpha = max(0.0, min(alpha, 1.0));
+	gl_FragColor = vec4(alpha * SKY_COLOR + (1.0-alpha) * tmp * Color, 1.0);
 }

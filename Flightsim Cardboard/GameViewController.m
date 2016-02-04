@@ -218,7 +218,7 @@
 - (void)prepareNewFrameWithHeadViewMatrix:(GLKMatrix4)headViewMatrix
 {
 	[self.terrainRenderer updateWithDt: self.timeSinceLastUpdate
-						andPosition: GLKVector3Make(0.0f, 2 00.0f, 0.0f)
+						andPosition: GLKVector3Make(0.0f, 500.0f, 0.0f)
 						andHeadView: headViewMatrix];
 }
 
