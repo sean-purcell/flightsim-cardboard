@@ -173,11 +173,10 @@ typedef std::pair<int,int> IntPair;
 
 - (void)updateWithDt:(float)dt andPosition:(GLKVector3) pos andHeadView:(GLKMatrix4)headView
 {
-	NSLog(@"Updating with dt %f", dt);
-	
 	float s = 500 * dt;
-	GLKVector3 forw = GLKMatrix4MultiplyVector3(headView, GLKVector3Make(0, 0, s));
+	GLKVector3 forw = GLKMatrix4MultiplyVector3(GLKMatrix4Invert(headView, NULL), GLKVector3Make(0, 0, s));
 	NSLog(@"Forward: %@", NSStringFromGLKVector3(forw));
+	forw = GLKVector3Make(forw.x, -forw.y, forw.z);
 	
 	_position = GLKVector3Add(_position, forw);
 	if(_position.x != _position.x) {
@@ -192,6 +191,7 @@ typedef std::pair<int,int> IntPair;
 	glClearColor(SKY_COLOR.r, SKY_COLOR.g, SKY_COLOR.b, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glEnable(GL_DEPTH_TEST);
+	glDisable(GL_BLEND);
 	
 	//DLog(@"%ld %@", eye.type, NSStringFromGLKMatrix4([eye eyeViewMatrix]));
 	
@@ -200,7 +200,7 @@ typedef std::pair<int,int> IntPair;
 	GLKMatrix4 perspective = [eye perspectiveMatrixWithZNear:10.0f zFar: 2 * CHUNKSAROUND * CHUNKWIDTH];
 	
 	GLKMatrix4 view = GLKMatrix4Identity;
-	view.m[2 * 4 + 2] = -1;
+	view = GLKMatrix4RotateY(view, M_PI);
 	view = GLKMatrix4Translate(view, -_position.x, -_position.y, -_position.z);
 	
 #if !(TARGET_IPHONE_SIMULATOR)
