@@ -12,106 +12,10 @@
 
 #import <OpenGLES/ES2/glext.h>
 
-#define BUFFER_OFFSET(i) ((char *)NULL + (i))
+#import "TerrainRenderer.h"
 
-void printMatrix(int line, GLKMatrix4 m) {
-	NSMutableString *s = [NSMutableString stringWithString:@""];
-	for(int i = 0; i < 4; i++) {
-		for(int j = 0; j < 4; j++) {
-			[s appendString: [NSString stringWithFormat:@"%f ", m.m[i*4+j]]];
-		}
-	}
-	
-	NSLog(@"%d: %@", line, s)
-}
-
-// Uniform index.
-enum
-{
-    UNIFORM_MODELVIEWPROJECTION_MATRIX,
-    UNIFORM_NORMAL_MATRIX,
-    NUM_UNIFORMS
-};
-GLint uniforms[NUM_UNIFORMS];
-
-// Attribute index.
-enum
-{
-    ATTRIB_VERTEX,
-    ATTRIB_NORMAL,
-    NUM_ATTRIBUTES
-};
-
-GLfloat gCubeVertexData[216] = 
-{
-    // Data layout for each line below is:
-    // positionX, positionY, positionZ,     normalX, normalY, normalZ,
-    0.5f, -0.5f, -0.5f,        1.0f, 0.0f, 0.0f,
-    0.5f, 0.5f, -0.5f,         1.0f, 0.0f, 0.0f,
-    0.5f, -0.5f, 0.5f,         1.0f, 0.0f, 0.0f,
-    0.5f, -0.5f, 0.5f,         1.0f, 0.0f, 0.0f,
-    0.5f, 0.5f, -0.5f,          1.0f, 0.0f, 0.0f,
-    0.5f, 0.5f, 0.5f,         1.0f, 0.0f, 0.0f,
-    
-    0.5f, 0.5f, -0.5f,         0.0f, 1.0f, 0.0f,
-    -0.5f, 0.5f, -0.5f,        0.0f, 1.0f, 0.0f,
-    0.5f, 0.5f, 0.5f,          0.0f, 1.0f, 0.0f,
-    0.5f, 0.5f, 0.5f,          0.0f, 1.0f, 0.0f,
-    -0.5f, 0.5f, -0.5f,        0.0f, 1.0f, 0.0f,
-    -0.5f, 0.5f, 0.5f,         0.0f, 1.0f, 0.0f,
-    
-    -0.5f, 0.5f, -0.5f,        -1.0f, 0.0f, 0.0f,
-    -0.5f, -0.5f, -0.5f,       -1.0f, 0.0f, 0.0f,
-    -0.5f, 0.5f, 0.5f,         -1.0f, 0.0f, 0.0f,
-    -0.5f, 0.5f, 0.5f,         -1.0f, 0.0f, 0.0f,
-    -0.5f, -0.5f, -0.5f,       -1.0f, 0.0f, 0.0f,
-    -0.5f, -0.5f, 0.5f,        -1.0f, 0.0f, 0.0f,
-    
-    -0.5f, -0.5f, -0.5f,       0.0f, -1.0f, 0.0f,
-    0.5f, -0.5f, -0.5f,        0.0f, -1.0f, 0.0f,
-    -0.5f, -0.5f, 0.5f,        0.0f, -1.0f, 0.0f,
-    -0.5f, -0.5f, 0.5f,        0.0f, -1.0f, 0.0f,
-    0.5f, -0.5f, -0.5f,        0.0f, -1.0f, 0.0f,
-    0.5f, -0.5f, 0.5f,         0.0f, -1.0f, 0.0f,
-    
-    0.5f, 0.5f, 0.5f,          0.0f, 0.0f, 1.0f,
-    -0.5f, 0.5f, 0.5f,         0.0f, 0.0f, 1.0f,
-    0.5f, -0.5f, 0.5f,         0.0f, 0.0f, 1.0f,
-    0.5f, -0.5f, 0.5f,         0.0f, 0.0f, 1.0f,
-    -0.5f, 0.5f, 0.5f,         0.0f, 0.0f, 1.0f,
-    -0.5f, -0.5f, 0.5f,        0.0f, 0.0f, 1.0f,
-    
-    0.5f, -0.5f, -0.5f,        0.0f, 0.0f, -1.0f,
-    -0.5f, -0.5f, -0.5f,       0.0f, 0.0f, -1.0f,
-    0.5f, 0.5f, -0.5f,         0.0f, 0.0f, -1.0f,
-    0.5f, 0.5f, -0.5f,         0.0f, 0.0f, -1.0f,
-    -0.5f, -0.5f, -0.5f,       0.0f, 0.0f, -1.0f,
-    -0.5f, 0.5f, -0.5f,        0.0f, 0.0f, -1.0f
-};
-
-@interface GameRenderer : NSObject {
-    GLuint _program;
-    
-    GLKMatrix4 _modelViewMatrix1;
-    GLKMatrix3 _normalMatrix1;
-	GLKMatrix4 _modelViewMatrix2;
-	GLKMatrix3 _normalMatrix2;
-	
-	GLKMatrix4 _headView;
-	
-    float _rotation;
-    
-    GLuint _vertexArray;
-    GLuint _vertexBuffer;
-	
-	GLint _positionLoc;
-	GLint _normalLoc;
-	
-	GLint _colorLoc;
-	
-	GLint _modelViewProjectionMatrixLoc;
-	GLint _normalMatrixLoc;
-}
+/*
+@interface GameRenderer : NSObject
 
 @end
 
@@ -127,13 +31,7 @@ GLfloat gCubeVertexData[216] =
 
 - (void)setupRendererWithView:(GLKView *)glView
 {
-	[EAGLContext setCurrentContext: glView.context];
 	
-	[self setupPrograms];
-	
-	[self setupVAOS];
-	
-	glEnable(GL_DEPTH_TEST);
 	
 	GLCheckForError();
 }
@@ -156,41 +54,31 @@ GLfloat gCubeVertexData[216] =
 		return NO;
 	}
 	
-	_program = glCreateProgram();
-	glAttachShader(_program, vertexShader);
-	glAttachShader(_program, fragmentShader);
-	GLLinkProgram(_program);
-	glUseProgram(_program);
+	_terrainProgram = glCreateProgram();
+	glAttachShader(_terrainProgram, vertexShader);
+	glAttachShader(_terrainProgram, fragmentShader);
+	GLLinkProgram(_terrainProgram);
+	glUseProgram(_terrainProgram);
 	
 	GLCheckForError();
 	
-	glUseProgram(_program);
+	glUseProgram(_terrainProgram);
 	
 	return YES;
 }
 
 - (void)setupVAOS
 {
-	_positionLoc = glGetAttribLocation(_program, "position");
-	_normalLoc = glGetAttribLocation(_program, "normal");
+	_positionLoc = glGetAttribLocation(_terrainProgram, "position");
+	_normalLoc = glGetAttribLocation(_terrainProgram, "normal");
 	
-	_colorLoc = glGetUniformLocation(_program, "color");
-	_modelViewProjectionMatrixLoc = glGetUniformLocation(_program, "modelViewProjectionMatrix");
-	_normalMatrixLoc = glGetUniformLocation(_program, "normalMatrix");
+	_colorLoc = glGetUniformLocation(_terrainProgram, "color");
+	_modelViewProjectionMatrixLoc = glGetUniformLocation(_terrainProgram, "modelViewProjectionMatrix");
+	_normalMatrixLoc = glGetUniformLocation(_terrainProgram, "normalMatrix");
 	
-	glGenVertexArraysOES(1, &_vertexArray);
-	glBindVertexArrayOES(_vertexArray);
-	
-	glGenBuffers(1, &_vertexBuffer);
-	glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(gCubeVertexData), gCubeVertexData, GL_STATIC_DRAW);
-	
-	glEnableVertexAttribArray(_positionLoc);
-	glEnableVertexAttribArray(_normalLoc);
-	
-	glVertexAttribPointer(_positionLoc, 3, GL_FLOAT, GL_FALSE, 24, BUFFER_OFFSET(0));
-	glVertexAttribPointer(_normalLoc, 3, GL_FLOAT, GL_FALSE, 24, BUFFER_OFFSET(12));
-	
+	glGenVertexArraysOES(1, &_terrainVertexArray);
+	glBindVertexArrayOES(_terrainVertexArray);
+
 	GLCheckForError();
 }
 
@@ -207,7 +95,7 @@ GLfloat gCubeVertexData[216] =
 	
 }
 
-/*
+
 - (void)prepareNewFrameWithHeadViewMatrix:(GLKMatrix4)headViewMatrix
 {
 	_headView = headViewMatrix;
@@ -233,7 +121,7 @@ GLfloat gCubeVertexData[216] =
 {
 	_rotation += timeSinceLastUpdate * 0.5f;
 }
-*/
+
  
 - (void)drawEyeWithEye:(CBDEye *)eye
 {
@@ -246,8 +134,8 @@ GLfloat gCubeVertexData[216] =
 	
 	GLKMatrix4 perspective = [eye perspectiveMatrixWithZNear:0.1f zFar:100.0f];
 	
-	glUseProgram(_program);
-	glBindVertexArrayOES(_vertexArray);
+	glUseProgram(_terrainProgram);
+	glBindVertexArrayOES(_terrainVertexArray);
 	glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
 	
 	// Draw each cube
@@ -284,10 +172,12 @@ GLfloat gCubeVertexData[216] =
 }
 
 @end
+ 
+ */
 
 @interface GameViewController() <CBDStereoRendererDelegate>
 
-@property (nonatomic) GameRenderer *gameRenderer;
+@property (nonatomic) TerrainRenderer *terrainRenderer;
 
 @end
 
@@ -304,8 +194,9 @@ GLfloat gCubeVertexData[216] =
 
 - (void)setupRendererWithView:(GLKView *)glView
 {
-	self.gameRenderer = [GameRenderer new];
-	[self.gameRenderer setupRendererWithView: glView];
+	self.terrainRenderer = [[TerrainRenderer alloc] init];
+
+	[self.terrainRenderer setupRendererWithView: glView];
 	
 	CGRect eyeFrame = self.view.bounds;
 	eyeFrame.size.height = self.view.bounds.size.height;
@@ -316,29 +207,29 @@ GLfloat gCubeVertexData[216] =
 
 - (void)shutdownRendererWithView:(GLKView *)glView
 {
-	[self.gameRenderer shutdownRendererWithView: glView];
+	[self.terrainRenderer shutdownRendererWithView: glView];
 }
 
 - (void)renderViewDidChangeSize:(CGSize)size
 {
-	[self.gameRenderer renderViewDidChangeSize: size];
+	[self.terrainRenderer renderViewDidChangeSize: size];
 }
 
 - (void)prepareNewFrameWithHeadViewMatrix:(GLKMatrix4)headViewMatrix
 {
-	[self.gameRenderer updateWithDt: self.timeSinceLastUpdate
-						andPosition: GLKVector3Make(0.0f, 100.0f, 0.0f)
+	[self.terrainRenderer updateWithDt: self.timeSinceLastUpdate
+						andPosition: GLKVector3Make(0.0f, 2 00.0f, 0.0f)
 						andHeadView: headViewMatrix];
 }
 
 - (void)drawEyeWithEye:(CBDEye *)eye
 {
-	[self.gameRenderer drawEyeWithEye: eye];
+	[self.terrainRenderer drawEyeWithEye: eye];
 }
 
 - (void)finishFrameWithViewportRect:(CGRect)viewPort
 {
-	[self.gameRenderer finishFrameWithViewportRect: viewPort];
+	[self.terrainRenderer finishFrameWithViewportRect: viewPort];
 }
 
 @end

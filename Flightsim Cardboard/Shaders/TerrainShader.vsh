@@ -6,24 +6,22 @@
 //  Copyright © 2016 Sean Purcell. All rights reserved.
 //
 
-attribute vec3 position;
-attribute vec3 color;
-attribute vec3 normal;
+precision mediump float;
+
+attribute mediump vec3 position;
+attribute mediump vec3 color;
 
 varying vec3 Color;
-varying vec3 Normal;
 varying float dist;
 varying vec3 Position;
 
-uniform mat4 proj;
-uniform mat4 view;
+uniform mat4 projView;
 
 void main()
 {
 	Color = color;
-	Normal = normal;
 	
-	gl_Position = proj * view * vec4(position, 1.0);
+	gl_Position = projView * vec4(position, 1.0);
 	dist = sqrt(gl_Position.z * gl_Position.z + gl_Position.x * gl_Position.x + gl_Position.y * gl_Position.y);
 	Position = position;
 }
