@@ -15,6 +15,8 @@
 #import "Simplex.hpp"
 #import "glmheaders.hpp"
 
+#import "BiomeColors.h"
+
 #include <utility>
 #include <map>
 
@@ -60,6 +62,8 @@ typedef std::pair<int,int> IntPair;
 	Simplex _amp;
 	Simplex _pers;
 }
+
+@property (nonatomic) BiomeColors *biomeColors;
 
 - (void)updateWithPos:(GLKVector3) pos;
 - (void)drawAllChunksWithTR: (TerrainRenderer *) tr;
@@ -239,6 +243,9 @@ typedef std::pair<int,int> IntPair;
 	
 	[self assignNoiseParams];
 	
+	NSString *path = [[NSBundle mainBundle] pathForResource:@"biome-earth" ofType:@"png"];
+	_biomeColors = [[BiomeColors alloc] initWithPath: path];
+	
 	return self;
 }
 
@@ -274,7 +281,7 @@ typedef std::pair<int,int> IntPair;
 
 - (vec3)getBiomeColorWithPers:(float) pers andAmp:(float)amp
 {
-	return vec3(0.4, 1.0, 0.4);
+	return [_biomeColors getBiomeColorWithPers: pers andAmp: amp];
 }
 
 - (void)updateWithPos:(GLKVector3) pos

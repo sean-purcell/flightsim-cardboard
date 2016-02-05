@@ -10,6 +10,11 @@
 		146FE7C81C62A0760027A46D /* TerrainRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 146FE7C71C62A0760027A46D /* TerrainRenderer.mm */; };
 		146FE7CC1C62AEBA0027A46D /* Simplex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 146FE7CA1C62AEBA0027A46D /* Simplex.cpp */; };
 		146FE7CE1C62C8A30027A46D /* glm in Resources */ = {isa = PBXBuildFile; fileRef = 146FE7CD1C62C8A30027A46D /* glm */; };
+		146FE7D41C64440E0027A46D /* biome-earth.png in Resources */ = {isa = PBXBuildFile; fileRef = 146FE7D11C64440E0027A46D /* biome-earth.png */; };
+		146FE7D51C64440E0027A46D /* biome-mars.png in Resources */ = {isa = PBXBuildFile; fileRef = 146FE7D21C64440E0027A46D /* biome-mars.png */; };
+		146FE7D61C64440E0027A46D /* text.png in Resources */ = {isa = PBXBuildFile; fileRef = 146FE7D31C64440E0027A46D /* text.png */; };
+		146FE7D91C6444400027A46D /* lodepng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 146FE7D71C6444400027A46D /* lodepng.cpp */; };
+		146FE7DC1C64446A0027A46D /* BiomeColors.mm in Sources */ = {isa = PBXBuildFile; fileRef = 146FE7DB1C64446A0027A46D /* BiomeColors.mm */; };
 		14BE67691C5C0FF700361A6D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BE67681C5C0FF700361A6D /* main.m */; };
 		14BE676C1C5C0FF700361A6D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BE676B1C5C0FF700361A6D /* AppDelegate.m */; };
 		14BE676E1C5C0FF700361A6D /* TerrainShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 14BE676D1C5C0FF700361A6D /* TerrainShader.fsh */; };
@@ -64,6 +69,13 @@
 		146FE7CB1C62AEBA0027A46D /* Simplex.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Simplex.hpp; sourceTree = "<group>"; };
 		146FE7CD1C62C8A30027A46D /* glm */ = {isa = PBXFileReference; lastKnownFileType = folder; name = glm; path = inc/glm; sourceTree = "<group>"; };
 		146FE7CF1C62C8DD0027A46D /* glmheaders.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = glmheaders.hpp; sourceTree = "<group>"; };
+		146FE7D11C64440E0027A46D /* biome-earth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "biome-earth.png"; path = "resources/biome-earth.png"; sourceTree = "<group>"; };
+		146FE7D21C64440E0027A46D /* biome-mars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "biome-mars.png"; path = "resources/biome-mars.png"; sourceTree = "<group>"; };
+		146FE7D31C64440E0027A46D /* text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = text.png; path = resources/text.png; sourceTree = "<group>"; };
+		146FE7D71C6444400027A46D /* lodepng.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lodepng.cpp; sourceTree = "<group>"; };
+		146FE7D81C6444400027A46D /* lodepng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lodepng.h; sourceTree = "<group>"; };
+		146FE7DB1C64446A0027A46D /* BiomeColors.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BiomeColors.mm; sourceTree = "<group>"; };
+		146FE7DD1C64447B0027A46D /* BiomeColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BiomeColors.h; sourceTree = "<group>"; };
 		14BE67641C5C0FF700361A6D /* Flightsim Cardboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flightsim Cardboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14BE67681C5C0FF700361A6D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		14BE676A1C5C0FF700361A6D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -157,14 +169,35 @@
 			name = Shaders;
 			sourceTree = "<group>";
 		};
+		146FE7D01C6443C30027A46D /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				146FE7D11C64440E0027A46D /* biome-earth.png */,
+				146FE7D21C64440E0027A46D /* biome-mars.png */,
+				146FE7D31C64440E0027A46D /* text.png */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
+		146FE7DA1C6444490027A46D /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				146FE7D71C6444400027A46D /* lodepng.cpp */,
+				146FE7D81C6444400027A46D /* lodepng.h */,
+				146FE7CA1C62AEBA0027A46D /* Simplex.cpp */,
+				146FE7CB1C62AEBA0027A46D /* Simplex.hpp */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
 		14BE675B1C5C0FF700361A6D = {
 			isa = PBXGroup;
 			children = (
 				146FE7CD1C62C8A30027A46D /* glm */,
-				14DE94DC1C618B110076DDBC /* Frameworks */,
 				14DE948F1C6030680076DDBC /* CardboardSDK */,
 				14BE67661C5C0FF700361A6D /* Flightsim Cardboard */,
 				14BE67651C5C0FF700361A6D /* Products */,
+				14DE94DC1C618B110076DDBC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -181,14 +214,16 @@
 		14BE67661C5C0FF700361A6D /* Flightsim Cardboard */ = {
 			isa = PBXGroup;
 			children = (
+				146FE7D01C6443C30027A46D /* resources */,
 				146FE7CF1C62C8DD0027A46D /* glmheaders.hpp */,
 				146FE6E71C626A3E0027A46D /* Shaders */,
 				14BE67711C5C0FF700361A6D /* GameViewController.h */,
 				14BE67721C5C0FF700361A6D /* GameViewController.m */,
 				146FE7C91C62A0A80027A46D /* TerrainRenderer.h */,
 				146FE7C71C62A0760027A46D /* TerrainRenderer.mm */,
-				146FE7CA1C62AEBA0027A46D /* Simplex.cpp */,
-				146FE7CB1C62AEBA0027A46D /* Simplex.hpp */,
+				146FE7DD1C64447B0027A46D /* BiomeColors.h */,
+				146FE7DB1C64446A0027A46D /* BiomeColors.mm */,
+				146FE7DA1C6444490027A46D /* lib */,
 				14BE67771C5C0FF700361A6D /* Assets.xcassets */,
 				14BE67671C5C0FF700361A6D /* Supporting Files */,
 			);
@@ -402,11 +437,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				146FE7D61C64440E0027A46D /* text.png in Resources */,
 				14BE67701C5C0FF700361A6D /* TerrainShader.vsh in Resources */,
 				14BE67A11C5C169200361A6D /* LaunchScreen.storyboard in Resources */,
 				14BE67781C5C0FF700361A6D /* Assets.xcassets in Resources */,
+				146FE7D41C64440E0027A46D /* biome-earth.png in Resources */,
 				14BE676E1C5C0FF700361A6D /* TerrainShader.fsh in Resources */,
 				146FE7CE1C62C8A30027A46D /* glm in Resources */,
+				146FE7D51C64440E0027A46D /* biome-mars.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +478,7 @@
 				14DE94991C60307B0076DDBC /* CBDViewController.mm in Sources */,
 				14DE94BC1C603EEB0076DDBC /* Eye.mm in Sources */,
 				146FE7C81C62A0760027A46D /* TerrainRenderer.mm in Sources */,
+				146FE7D91C6444400027A46D /* lodepng.cpp in Sources */,
 				14DE94BA1C603EEB0076DDBC /* Distortion.mm in Sources */,
 				14DE94D81C603F120076DDBC /* SO3Util.mm in Sources */,
 				14DE94BE1C603EEB0076DDBC /* GLStateBackup.mm in Sources */,
@@ -450,6 +489,7 @@
 				14DE94B91C603EEB0076DDBC /* CardboardUnity.mm in Sources */,
 				14DE94B81C603EEB0076DDBC /* CardboardDeviceParams.mm in Sources */,
 				14DE94C11C603EEB0076DDBC /* ScreenParams.mm in Sources */,
+				146FE7DC1C64446A0027A46D /* BiomeColors.mm in Sources */,
 				14DE949F1C603ED40076DDBC /* GLHelpers.m in Sources */,
 				14DE94BD1C603EEB0076DDBC /* FieldOfView.mm in Sources */,
 				14DE94C31C603EEB0076DDBC /* Viewport.mm in Sources */,
@@ -576,6 +616,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COMPRESS_PNG_FILES = NO;
 				"HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/inc";
 				INFOPLIST_FILE = "Flightsim Cardboard/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -583,6 +624,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "xyz.seanp.Flightsim-Cardboard";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				STRIP_PNG_TEXT = NO;
 			};
 			name = Debug;
 		};
@@ -592,6 +634,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COMPRESS_PNG_FILES = NO;
 				"HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/inc";
 				INFOPLIST_FILE = "Flightsim Cardboard/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -599,6 +642,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "xyz.seanp.Flightsim-Cardboard";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				STRIP_PNG_TEXT = NO;
 			};
 			name = Release;
 		};
