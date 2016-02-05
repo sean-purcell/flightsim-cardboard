@@ -19,8 +19,8 @@
 #include <map>
 
 #define CHUNKCOUNT 32 // the number of triangles along a chunk edge
-#define CHUNKWIDTH 1024. // how wide the chunk is
 #define CHUNKRATIO (CHUNKWIDTH/CHUNKCOUNT)
+#define CHUNKWIDTH 1024. // how wide the chunk is
 
 #define CHUNKSAROUND 10 // radius of loaded chunks shown
 
@@ -178,6 +178,10 @@ typedef std::pair<int,int> IntPair;
 	NSLog(@"Forward: %@", NSStringFromGLKVector3(forw));
 	forw = GLKVector3Make(forw.x, -forw.y, forw.z);
 	
+#if (TARGET_IPHONE_SIMULATOR)
+	forw = GLKVector3Make(0, 0, -1);
+#endif
+	
 	_position = GLKVector3Add(_position, forw);
 	if(_position.x != _position.x) {
 		_position = GLKVector3Make(0.0, 200.0, 0.0);
@@ -197,7 +201,7 @@ typedef std::pair<int,int> IntPair;
 	
 	GLCheckForError();
 	
-	GLKMatrix4 perspective = [eye perspectiveMatrixWithZNear:10.0f zFar: 2 * CHUNKSAROUND * CHUNKWIDTH];
+	GLKMatrix4 perspective = [eye perspectiveMatrixWithZNear:25.0f zFar: 1.5 * CHUNKSAROUND * CHUNKWIDTH];
 	
 	GLKMatrix4 view = GLKMatrix4Identity;
 	view = GLKMatrix4RotateY(view, M_PI);
@@ -294,10 +298,15 @@ typedef std::pair<int,int> IntPair;
 		}
 	}
 	
+	int loaded = 0;
 	for(int i = xchunk - CHUNKSAROUND; i <= xchunk + CHUNKSAROUND; i++) {
 		for(int j = zchunk - CHUNKSAROUND; j <= zchunk + CHUNKSAROUND; j++) {
 			IntPair key = IntPair(i, j);
-			[self loadChunk: key];
+			if(![self isLoaded: key]) {
+				[self loadChunk: key];
+				loaded++;
+				if(loaded == 5) return;
+			}
 		}
 	}
 }

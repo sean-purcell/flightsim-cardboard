@@ -10,7 +10,7 @@ precision mediump float;
 
 varying vec3 Color;
 varying float dist;
-varying vec3 Position;
+varying float height;
 
 uniform vec3 LIGHT_DIR;
 uniform vec3 SKY_COLOR;
@@ -27,7 +27,7 @@ float sigmoid(float x) {
 void main()
 {
 	float tmp = 0.5;
-	tmp += 0.5 * (1.2 * sigmoid(Position.y / 480.0));
+	tmp += 0.5 * (1.2 * sigmoid(height / 480.0));
 	//tmp += 0.5 * Position.y / 480.0;
 	float alpha = coeff(dist);
 	alpha = max(0.0, min(alpha, 1.0));

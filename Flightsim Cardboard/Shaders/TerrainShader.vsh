@@ -6,16 +6,14 @@
 //  Copyright © 2016 Sean Purcell. All rights reserved.
 //
 
-precision mediump float;
+attribute highp vec3 position;
+attribute lowp vec3 color;
 
-attribute mediump vec3 position;
-attribute mediump vec3 color;
+varying lowp vec3 Color;
+varying lowp float dist;
+varying lowp float height;
 
-varying vec3 Color;
-varying float dist;
-varying vec3 Position;
-
-uniform mat4 projView;
+uniform highp mat4 projView;
 
 void main()
 {
@@ -23,5 +21,5 @@ void main()
 	
 	gl_Position = projView * vec4(position, 1.0);
 	dist = sqrt(gl_Position.z * gl_Position.z + gl_Position.x * gl_Position.x + gl_Position.y * gl_Position.y);
-	Position = position;
+	height = position.y;
 }
