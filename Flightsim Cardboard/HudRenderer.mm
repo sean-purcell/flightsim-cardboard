@@ -18,8 +18,6 @@
 
 #import <vector>
 
-static size_t updateHudVertices(vec3 pos, quat facing, vec3 vel);
-
 #pragma mark - Objective-C interface
 
 @interface HudRenderer : NSObject {
@@ -32,6 +30,7 @@ static size_t updateHudVertices(vec3 pos, quat facing, vec3 vel);
 	
 	GLint _hudColorLoc;
 	GLint _projViewLoc;
+	GLint _texLoc;
 	
 	GLuint _tex;
 	
@@ -105,6 +104,7 @@ static size_t updateHudVertices(vec3 pos, quat facing, vec3 vel);
 	
 	_hudColorLoc = glGetUniformLocation(_program, "hudColor");
 	_projViewLoc = glGetUniformLocation(_program, "projView");
+	_texLoc = glGetUniformLocation(_program, "tex");
 	
 	glGenVertexArraysOES(1, &_vertexArray);
 	glBindVertexArrayOES(_vertexArray);
@@ -171,6 +171,7 @@ static size_t updateHudVertices(vec3 pos, quat facing, vec3 vel);
 {
 	glDisable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	
 	//DLog(@"%ld %@", eye.type, NSStringFromGLKMatrix4([eye eyeViewMatrix]));
 	
@@ -184,6 +185,10 @@ static size_t updateHudVertices(vec3 pos, quat facing, vec3 vel);
 	
 	glUseProgram(_program);
 	glBindVertexArrayOES(_vertexArray);
+	
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, _tex);
+	glUniform1i(_texLoc, 0);
 	
 	glUniformMatrix4fv(_projViewLoc, 1, 0, projView.m);
 	
@@ -482,9 +487,25 @@ digit(tl, r, d, c);\
 		}
 	}
 	
+	
+	/*{
+		vertices.clear();
+		indices.clear();
+		digit(vec3(0.0f, 0.0f, -5.0f), vec3(2.0f, 0.0f, 0.0f), vec3(0.0f, -2.0f, 0.0f), '3');
+		vertices[3] = 0;
+		vertices[4] = 0;
+		vertices[8] = 0;
+		vertices[9] = 1;
+		vertices[18] = 1;
+		vertices[19] = 0;
+		vertices[13] = 1;
+		vertices[14] = 1;
+	}*/
+	
 #undef quad
 #undef vertex
 #undef colors
+
 	
 	glUseProgram(_program);
 	glBindVertexArrayOES(_vertexArray);
