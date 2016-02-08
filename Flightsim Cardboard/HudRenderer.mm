@@ -40,6 +40,8 @@ static size_t updateHudVertices(vec3 pos, quat facing, vec3 vel);
 	GLKMatrix4 _headViewInv;
 	quat _facing;
 	vec3 _pos, _vel;
+	
+	size_t _indNum;
 }
 
 @end
@@ -114,6 +116,8 @@ static size_t updateHudVertices(vec3 pos, quat facing, vec3 vel);
 	glEnableVertexAttribArray(_texcoordLoc);
 	
 	[self setupTex];
+
+	GLCheckForError();
 }
 
 - (void)setupTex
@@ -130,11 +134,13 @@ static size_t updateHudVertices(vec3 pos, quat facing, vec3 vel);
 	if(error) NSLog(@"decoder error %d: %s", error, lodepng_error_text(error));
 	
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, &image[0]);
-	glGenerateMipmap(GL_TEXTURE_2D);
+	//glGenerateMipmap(GL_TEXTURE_2D);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	
+	GLCheckForError();
 }
 
 - (void)setHudColor:(vec4) hudColor
@@ -157,6 +163,8 @@ static size_t updateHudVertices(vec3 pos, quat facing, vec3 vel);
 	_facing = facing;
 	_pos = pos;
 	_vel = vel;
+	
+	_indNum = [self updateHudVertices];
 }
 
 - (void)drawEyeWithEye:(CBDEye *)eye
@@ -195,15 +203,12 @@ static size_t updateHudVertices(vec3 pos, quat facing, vec3 vel);
 	glVertexAttribPointer(_texcoordLoc, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat),
 						  (void*)(3 * sizeof(GLfloat)));
 	
-	size_t num = updateHudVertices(_pos, _facing, _vel);
-	glDrawElements(GL_TRIANGLES, (int) num, GL_UNSIGNED_SHORT, 0);
+	glDrawElements(GL_TRIANGLES, (int) _indNum, GL_UNSIGNED_SHORT, 0);
 }
 
 - (void)finishFrameWithViewportRect:(CGRect)viewPort
 {
 }
-
-@end
 
 #pragma mark - Original HUD C++ functions
 static void setColors(std::vector<GLfloat> &vertices, char c) {
@@ -234,7 +239,8 @@ static void setColors(std::vector<GLfloat> &vertices, char c) {
 	vertices[ind + 4] = 1.0f;
 }
 
-static size_t updateHudVertices(vec3 pos, quat facing, vec3 vel) {
+- (size_t) updateHudVertices
+{
 #define quad() do {\
 size_t start = vertices.size() / 5 - 4;\
 indices.push_back(start + 0);\
@@ -269,6 +275,10 @@ quad(); \
 #define rect(tl, r, d, c) do {\
 digit(tl, r, d, c);\
 } while(0)
+	
+	vec3 pos = _pos;
+	quat facing = _facing;
+	vec3 vel = _vel;
 	
 	std::vector<GLfloat> vertices;
 	std::vector<GLushort> indices;
@@ -476,9 +486,17 @@ digit(tl, r, d, c);\
 #undef vertex
 #undef colors
 	
+	glUseProgram(_program);
+	glBindVertexArrayOES(_vertexArray);
+	
+	glBindBuffer(GL_ARRAY_BUFFER, _vbo);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _ebo);
+	
 	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(GLfloat),
 				 &vertices[0], GL_DYNAMIC_DRAW);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(GLushort),
 				 &indices[0], GL_DYNAMIC_DRAW);
 	return indices.size();
 }
+
+@end
