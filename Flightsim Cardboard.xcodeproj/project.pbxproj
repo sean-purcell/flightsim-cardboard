@@ -13,7 +13,7 @@
 		146FE7D41C64440E0027A46D /* biome-earth.png in Resources */ = {isa = PBXBuildFile; fileRef = 146FE7D11C64440E0027A46D /* biome-earth.png */; };
 		146FE7D51C64440E0027A46D /* biome-mars.png in Resources */ = {isa = PBXBuildFile; fileRef = 146FE7D21C64440E0027A46D /* biome-mars.png */; };
 		146FE7D61C64440E0027A46D /* text.png in Resources */ = {isa = PBXBuildFile; fileRef = 146FE7D31C64440E0027A46D /* text.png */; };
-		146FE7D91C6444400027A46D /* lodepng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 146FE7D71C6444400027A46D /* lodepng.cpp */; };
+		146FE7D91C6444400027A46D /* lodepng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 146FE7D71C6444400027A46D /* lodepng.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		146FE7DC1C64446A0027A46D /* BiomeColors.mm in Sources */ = {isa = PBXBuildFile; fileRef = 146FE7DB1C64446A0027A46D /* BiomeColors.mm */; };
 		146FE7E11C66955C0027A46D /* Aircraft.mm in Sources */ = {isa = PBXBuildFile; fileRef = 146FE7E01C66955C0027A46D /* Aircraft.mm */; };
 		146FE7E41C681C230027A46D /* HudRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 146FE7E31C681C230027A46D /* HudRenderer.mm */; };
