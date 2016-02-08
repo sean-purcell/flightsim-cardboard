@@ -68,6 +68,8 @@ typedef std::pair<int,int> IntPair;
 - (void)updateWithPos:(GLKVector3) pos;
 - (void)drawAllChunksWithTR: (TerrainRenderer *) tr;
 
+- (vec4)getHudColor;
+
 @end
 
 @interface TerrainRenderer : NSObject {
@@ -179,7 +181,6 @@ typedef std::pair<int,int> IntPair;
 {
 	float s = 500 * dt;
 	GLKVector3 forw = GLKMatrix4MultiplyVector3(GLKMatrix4Invert(headView, NULL), GLKVector3Make(0, 0, s));
-	NSLog(@"Forward: %@", NSStringFromGLKVector3(forw));
 	forw = GLKVector3Make(forw.x, -forw.y, forw.z);
 	
 #if (TARGET_IPHONE_SIMULATOR)
@@ -190,7 +191,6 @@ typedef std::pair<int,int> IntPair;
 	if(_position.x != _position.x) {
 		_position = GLKVector3Make(0.0, 200.0, 0.0);
 	}
-	NSLog(@"Position: %@", NSStringFromGLKVector3(_position));
 	[_chunkManager updateWithPos: _position];
 }
 
@@ -205,7 +205,7 @@ typedef std::pair<int,int> IntPair;
 	
 	GLCheckForError();
 	
-	GLKMatrix4 perspective = [eye perspectiveMatrixWithZNear:25.0f zFar: 1.5 * CHUNKSAROUND * CHUNKWIDTH];
+	GLKMatrix4 perspective = [eye perspectiveMatrixWithZNear:10.0f zFar: 1.5 * CHUNKSAROUND * CHUNKWIDTH];
 	
 	GLKMatrix4 view = GLKMatrix4Identity;
 	view = GLKMatrix4RotateY(view, M_PI);
@@ -230,6 +230,11 @@ typedef std::pair<int,int> IntPair;
 
 - (void)finishFrameWithViewportRect:(CGRect)viewPort
 {
+}
+
+- (vec4)getHudColor
+{
+	return [_chunkManager getHudColor];
 }
 
 @end
@@ -282,6 +287,11 @@ typedef std::pair<int,int> IntPair;
 - (vec3)getBiomeColorWithPers:(float) pers andAmp:(float)amp
 {
 	return [_biomeColors getBiomeColorWithPers: pers andAmp: amp];
+}
+
+- (vec4)getHudColor
+{
+	return [_biomeColors getHudColor];
 }
 
 - (void)updateWithPos:(GLKVector3) pos
@@ -484,6 +494,13 @@ typedef std::pair<int,int> IntPair;
 	
 	glDrawElements(GL_TRIANGLES, CHUNKCOUNT * CHUNKCOUNT * 2 * 3,
 				   GL_UNSIGNED_SHORT, 0);
+}
+
+- (void)dealloc
+{
+	NSLog(@"Deleting chunk %d %d", _x, _z);
+	glDeleteBuffers(1, &_vbo);
+	glDeleteBuffers(1, &_ebo);
 }
 
 @end

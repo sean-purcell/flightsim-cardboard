@@ -28,7 +28,7 @@
 	if(!self) { return nil; }
 	
 	unsigned width, height;
-	unsigned error = lodepng::decode(_biomeColors, width, height, std::string([path UTF8String]));
+	unsigned error = lodepng::decode(_biomeColors, width, height, [path UTF8String]);
 	if(error) NSLog(@"Failed to load biome colors: %@", path);
 	
 	return self;

@@ -15,11 +15,16 @@
 		146FE7D61C64440E0027A46D /* text.png in Resources */ = {isa = PBXBuildFile; fileRef = 146FE7D31C64440E0027A46D /* text.png */; };
 		146FE7D91C6444400027A46D /* lodepng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 146FE7D71C6444400027A46D /* lodepng.cpp */; };
 		146FE7DC1C64446A0027A46D /* BiomeColors.mm in Sources */ = {isa = PBXBuildFile; fileRef = 146FE7DB1C64446A0027A46D /* BiomeColors.mm */; };
+		146FE7E11C66955C0027A46D /* Aircraft.mm in Sources */ = {isa = PBXBuildFile; fileRef = 146FE7E01C66955C0027A46D /* Aircraft.mm */; };
+		146FE7E41C681C230027A46D /* HudRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 146FE7E31C681C230027A46D /* HudRenderer.mm */; };
+		146FE7E81C681EA40027A46D /* HudShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 146FE7E61C681EA40027A46D /* HudShader.fsh */; };
+		146FE7E91C681EA40027A46D /* HudShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 146FE7E71C681EA40027A46D /* HudShader.vsh */; };
+		146FE7EC1C6849B80027A46D /* rotation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 146FE7EA1C6849B80027A46D /* rotation.cpp */; };
 		14BE67691C5C0FF700361A6D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BE67681C5C0FF700361A6D /* main.m */; };
 		14BE676C1C5C0FF700361A6D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BE676B1C5C0FF700361A6D /* AppDelegate.m */; };
 		14BE676E1C5C0FF700361A6D /* TerrainShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 14BE676D1C5C0FF700361A6D /* TerrainShader.fsh */; };
 		14BE67701C5C0FF700361A6D /* TerrainShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 14BE676F1C5C0FF700361A6D /* TerrainShader.vsh */; };
-		14BE67731C5C0FF700361A6D /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BE67721C5C0FF700361A6D /* GameViewController.m */; };
+		14BE67731C5C0FF700361A6D /* GameViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14BE67721C5C0FF700361A6D /* GameViewController.mm */; };
 		14BE67781C5C0FF700361A6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14BE67771C5C0FF700361A6D /* Assets.xcassets */; };
 		14BE67A11C5C169200361A6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14BE67A01C5C169200361A6D /* LaunchScreen.storyboard */; };
 		14DE94981C60307B0076DDBC /* CBDStereoGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DE94931C60307B0076DDBC /* CBDStereoGLView.m */; };
@@ -76,6 +81,14 @@
 		146FE7D81C6444400027A46D /* lodepng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lodepng.h; sourceTree = "<group>"; };
 		146FE7DB1C64446A0027A46D /* BiomeColors.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BiomeColors.mm; sourceTree = "<group>"; };
 		146FE7DD1C64447B0027A46D /* BiomeColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BiomeColors.h; sourceTree = "<group>"; };
+		146FE7E01C66955C0027A46D /* Aircraft.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Aircraft.mm; sourceTree = "<group>"; };
+		146FE7E21C6695890027A46D /* Aircraft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Aircraft.h; sourceTree = "<group>"; };
+		146FE7E31C681C230027A46D /* HudRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HudRenderer.mm; sourceTree = "<group>"; };
+		146FE7E51C681C390027A46D /* HudRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HudRenderer.h; sourceTree = "<group>"; };
+		146FE7E61C681EA40027A46D /* HudShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = HudShader.fsh; path = Shaders/HudShader.fsh; sourceTree = "<group>"; };
+		146FE7E71C681EA40027A46D /* HudShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = HudShader.vsh; path = Shaders/HudShader.vsh; sourceTree = "<group>"; };
+		146FE7EA1C6849B80027A46D /* rotation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rotation.cpp; sourceTree = "<group>"; };
+		146FE7EB1C6849B80027A46D /* rotation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rotation.hpp; sourceTree = "<group>"; };
 		14BE67641C5C0FF700361A6D /* Flightsim Cardboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flightsim Cardboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14BE67681C5C0FF700361A6D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		14BE676A1C5C0FF700361A6D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -83,7 +96,7 @@
 		14BE676D1C5C0FF700361A6D /* TerrainShader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = TerrainShader.fsh; path = Shaders/TerrainShader.fsh; sourceTree = "<group>"; };
 		14BE676F1C5C0FF700361A6D /* TerrainShader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = TerrainShader.vsh; path = Shaders/TerrainShader.vsh; sourceTree = "<group>"; };
 		14BE67711C5C0FF700361A6D /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
-		14BE67721C5C0FF700361A6D /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		14BE67721C5C0FF700361A6D /* GameViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GameViewController.mm; sourceTree = "<group>"; };
 		14BE67771C5C0FF700361A6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14BE677C1C5C0FF700361A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14BE67811C5C0FF800361A6D /* Flightsim CardboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flightsim CardboardTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +176,8 @@
 		146FE6E71C626A3E0027A46D /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				146FE7E61C681EA40027A46D /* HudShader.fsh */,
+				146FE7E71C681EA40027A46D /* HudShader.vsh */,
 				14BE676D1C5C0FF700361A6D /* TerrainShader.fsh */,
 				14BE676F1C5C0FF700361A6D /* TerrainShader.vsh */,
 			);
@@ -218,11 +233,17 @@
 				146FE7CF1C62C8DD0027A46D /* glmheaders.hpp */,
 				146FE6E71C626A3E0027A46D /* Shaders */,
 				14BE67711C5C0FF700361A6D /* GameViewController.h */,
-				14BE67721C5C0FF700361A6D /* GameViewController.m */,
+				14BE67721C5C0FF700361A6D /* GameViewController.mm */,
 				146FE7C91C62A0A80027A46D /* TerrainRenderer.h */,
 				146FE7C71C62A0760027A46D /* TerrainRenderer.mm */,
 				146FE7DD1C64447B0027A46D /* BiomeColors.h */,
 				146FE7DB1C64446A0027A46D /* BiomeColors.mm */,
+				146FE7E31C681C230027A46D /* HudRenderer.mm */,
+				146FE7E51C681C390027A46D /* HudRenderer.h */,
+				146FE7EA1C6849B80027A46D /* rotation.cpp */,
+				146FE7EB1C6849B80027A46D /* rotation.hpp */,
+				146FE7E01C66955C0027A46D /* Aircraft.mm */,
+				146FE7E21C6695890027A46D /* Aircraft.h */,
 				146FE7DA1C6444490027A46D /* lib */,
 				14BE67771C5C0FF700361A6D /* Assets.xcassets */,
 				14BE67671C5C0FF700361A6D /* Supporting Files */,
@@ -439,7 +460,9 @@
 			files = (
 				146FE7D61C64440E0027A46D /* text.png in Resources */,
 				14BE67701C5C0FF700361A6D /* TerrainShader.vsh in Resources */,
+				146FE7E91C681EA40027A46D /* HudShader.vsh in Resources */,
 				14BE67A11C5C169200361A6D /* LaunchScreen.storyboard in Resources */,
+				146FE7E81C681EA40027A46D /* HudShader.fsh in Resources */,
 				14BE67781C5C0FF700361A6D /* Assets.xcassets in Resources */,
 				146FE7D41C64440E0027A46D /* biome-earth.png in Resources */,
 				14BE676E1C5C0FF700361A6D /* TerrainShader.fsh in Resources */,
@@ -478,13 +501,16 @@
 				14DE94991C60307B0076DDBC /* CBDViewController.mm in Sources */,
 				14DE94BC1C603EEB0076DDBC /* Eye.mm in Sources */,
 				146FE7C81C62A0760027A46D /* TerrainRenderer.mm in Sources */,
+				146FE7E41C681C230027A46D /* HudRenderer.mm in Sources */,
 				146FE7D91C6444400027A46D /* lodepng.cpp in Sources */,
 				14DE94BA1C603EEB0076DDBC /* Distortion.mm in Sources */,
+				146FE7E11C66955C0027A46D /* Aircraft.mm in Sources */,
 				14DE94D81C603F120076DDBC /* SO3Util.mm in Sources */,
 				14DE94BE1C603EEB0076DDBC /* GLStateBackup.mm in Sources */,
+				146FE7EC1C6849B80027A46D /* rotation.cpp in Sources */,
 				14DE94D91C603F120076DDBC /* Vector3d.mm in Sources */,
 				14DE94D71C603F120076DDBC /* OrientationEKF.mm in Sources */,
-				14BE67731C5C0FF700361A6D /* GameViewController.m in Sources */,
+				14BE67731C5C0FF700361A6D /* GameViewController.mm in Sources */,
 				146FE7CC1C62AEBA0027A46D /* Simplex.cpp in Sources */,
 				14DE94B91C603EEB0076DDBC /* CardboardUnity.mm in Sources */,
 				14DE94B81C603EEB0076DDBC /* CardboardDeviceParams.mm in Sources */,
@@ -614,6 +640,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CXX0X_EXTENSIONS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
@@ -632,6 +661,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CXX0X_EXTENSIONS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;

@@ -9,26 +9,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Flightsim Cardboard/GameViewController.h"
-            timestampString = "476065937.860841"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "11"
-            endingLineNumber = "11">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Flightsim Cardboard/TerrainRenderer.mm"
-            timestampString = "476380591.543622"
+            timestampString = "476598054.465048"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "-updateWithDt:andPosition:andHeadView:"
             landmarkType = "5">
          </BreakpointContent>
@@ -39,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Flightsim Cardboard/BiomeColors.mm"
-            timestampString = "476380762.427084"
+            filePath = "Flightsim Cardboard/HudRenderer.mm"
+            timestampString = "476597815.267866"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "-initWithPath:"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
+            landmarkName = "-drawHud"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -12,5 +12,6 @@
 
 - (instancetype)initWithPath:(NSString *) path;
 - (vec3)getBiomeColorWithPers:(float) pers andAmp:(float) amp;
+- (vec4)getHudColor;
 
 @end
