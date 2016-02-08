@@ -68,7 +68,7 @@
 						andPosition: GLKVector3Make(0.0f, 500.0f, 0.0f)
 						andHeadView: headViewMatrix];
 	[self.hudRenderer updateWithPos: vec3(0, 500.0f, 0.0f)
-						  andFacing: quat(0.0f, 0.0f, 1.0f, 0.0f)
+						  andFacing: quat(0.0f, 0.0f, 0.0f, 1.0f)
 							 andVel: vec3(0.0f, 0.0f, 500.0f)
 						andHeadView: headViewMatrix];
 }

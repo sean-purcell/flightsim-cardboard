@@ -160,7 +160,9 @@
 - (void)updateWithPos:(vec3) pos andFacing:(quat)facing andVel:(vec3) vel andHeadView:(GLKMatrix4)headView
 {
 	_headViewInv = GLKMatrix4Invert(headView, NULL);
-	_facing = facing;
+	_facing = quat_cast(inverse(make_mat4(headView.m)));
+	//_facing = facing;
+	NSLog(@"facing: (%f,%f,%f,%f)", _facing.x, _facing.y, _facing.z, _facing.w);
 	_pos = pos;
 	_vel = vel;
 	
@@ -179,7 +181,9 @@
 	
 	GLKMatrix4 perspective = [eye perspectiveMatrixWithZNear:0.1f zFar: 10.f];
 	
-	GLKMatrix4 view = GLKMatrix4Multiply(_headViewInv, [eye eyeViewMatrix]);
+	GLKMatrix4 view = GLKMatrix4Identity;
+	view.m[10] = -1;
+	view = GLKMatrix4Multiply(GLKMatrix4Multiply(_headViewInv, [eye eyeViewMatrix]), view);
 	
 	GLKMatrix4 projView = GLKMatrix4Multiply(perspective, view);
 	
@@ -296,6 +300,9 @@ digit(tl, r, d, c);\
 	
 	quat pitch = angleAxis(angles.pitch, right);
 	vec3 forw = pitch * vec3(0, 0, 1);
+	
+	NSLog(@"forw: (%f, %f, %f)", forw.x, forw.y, forw.z);
+	NSLog(@"rigt: (%f, %f, %f)", right.x, right.y, right.z);
 	
 	/* draw a cross hair representing velocity direction */
 	{
