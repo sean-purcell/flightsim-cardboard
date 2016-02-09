@@ -12,11 +12,13 @@
 
 #import <OpenGLES/ES2/glext.h>
 
+#import "Aircraft.h"
 #import "TerrainRenderer.h"
 #import "HudRenderer.h"
 
 @interface GameViewController() <CBDStereoRendererDelegate>
 
+@property (nonatomic) Aircraft *aircraft;
 @property (nonatomic) TerrainRenderer *terrainRenderer;
 @property (nonatomic) HudRenderer *hudRenderer;
 
@@ -35,6 +37,8 @@
 
 - (void)setupRendererWithView:(GLKView *)glView
 {
+	self.aircraft = [[Aircraft alloc] init];
+	
 	self.terrainRenderer = [[TerrainRenderer alloc] init];
 	self.hudRenderer = [[HudRenderer alloc] init];
 
@@ -64,12 +68,16 @@
 
 - (void)prepareNewFrameWithHeadViewMatrix:(GLKMatrix4)headViewMatrix
 {
+	mat4 headView = make_mat4(headViewMatrix.m);
+	
+	[self.aircraft updateWithDt: self.timeSinceLastUpdate andHeadView: headView];
+	
 	[self.terrainRenderer updateWithDt: self.timeSinceLastUpdate
-						andPosition: GLKVector3Make(0.0f, 500.0f, 0.0f)
-						andHeadView: headViewMatrix];
-	[self.hudRenderer updateWithPos: vec3(0, 500.0f, 0.0f)
-						  andFacing: quat(0.0f, 0.0f, 0.0f, 1.0f)
-							 andVel: vec3(0.0f, 0.0f, 500.0f)
+						andPosition: self.aircraft.pos
+						andHeadView: headView];
+	[self.hudRenderer updateWithPos: self.aircraft.pos
+						  andFacing: self.aircraft.facing
+							 andVel: self.aircraft.vel
 						andHeadView: headViewMatrix];
 }
 

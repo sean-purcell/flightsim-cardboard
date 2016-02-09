@@ -67,7 +67,7 @@
 {
 	_g = -9.8;
 	_mass = 16770;
-	_thrust = 79200 * 2;
+	_thrust = 79200 * 2 * 10;
 	_aoi = 5 * M_PI / 180;
 	_maxaileron = 45 * M_PI / 180;
 	_minaileron = -45 * M_PI / 180;
@@ -89,8 +89,9 @@
 	_rolldampcoeff = 50;
 }
 
-- (void)updateWithDt:(float) dt
+- (void)updateWithDt:(float) dt andHeadView:(mat4) headView;
 {
+	_facing = inverse(quat_cast(headView));
 	[self applyForcesWithDt: dt];
 }
 
@@ -102,6 +103,11 @@
 	netF += [self fThrust];
 	netF += [self fWing];
 	netF += [self fDrag];
+	
+	vec3 a = netF / _mass;
+	
+	_pos += dt * _vel + 0.5f * a * dt*dt;
+	_vel += dt * a;
 }
 
 - (vec3)fGravity

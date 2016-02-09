@@ -160,7 +160,7 @@
 - (void)updateWithPos:(vec3) pos andFacing:(quat)facing andVel:(vec3) vel andHeadView:(GLKMatrix4)headView
 {
 	_headViewInv = GLKMatrix4Invert(headView, NULL);
-	_facing = quat_cast(inverse(make_mat4(headView.m)));
+	_facing = facing;
 	//_facing = facing;
 	NSLog(@"facing: (%f,%f,%f,%f)", _facing.x, _facing.y, _facing.z, _facing.w);
 	_pos = pos;
@@ -182,7 +182,7 @@
 	GLKMatrix4 perspective = [eye perspectiveMatrixWithZNear:0.1f zFar: 10.f];
 	
 	GLKMatrix4 view = GLKMatrix4Identity;
-	view.m[10] = -1;
+	view =
 	view = GLKMatrix4Multiply(GLKMatrix4Multiply(_headViewInv, [eye eyeViewMatrix]), view);
 	
 	GLKMatrix4 projView = GLKMatrix4Multiply(perspective, view);

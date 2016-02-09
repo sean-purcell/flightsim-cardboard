@@ -9,7 +9,7 @@
 #import "glmheaders.hpp"
 
 @interface Aircraft : NSObject
-- (void)updateWithDt:(float) dt;
+- (void)updateWithDt:(float) dt andHeadView:(mat4) headView;
 
 @property vec3 pos;
 @property vec3 vel;

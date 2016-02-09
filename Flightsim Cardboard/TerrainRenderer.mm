@@ -65,7 +65,7 @@ typedef std::pair<int,int> IntPair;
 
 @property (nonatomic) BiomeColors *biomeColors;
 
-- (void)updateWithPos:(GLKVector3) pos;
+- (void)updateWithPos:(vec3) pos;
 - (void)drawAllChunksWithTR: (TerrainRenderer *) tr;
 
 - (vec4)getHudColor;
@@ -79,7 +79,7 @@ typedef std::pair<int,int> IntPair;
 	
 	GLint _projViewLoc;
 	
-	GLKVector3 _position;
+	vec3 _position;
 }
 
 @property (nonatomic) ChunkManager *chunkManager;
@@ -108,7 +108,7 @@ typedef std::pair<int,int> IntPair;
 	[self setupProgram];
 	[self setupVAOS];
 	
-	_position = GLKVector3Make(0.0, 0.0, 0.0);
+	_position = vec3(0.0, 0.0, 0.0);
 	
 	glEnable(GL_DEPTH_TEST);
 	
@@ -177,20 +177,9 @@ typedef std::pair<int,int> IntPair;
 {
 }
 
-- (void)updateWithDt:(float)dt andPosition:(GLKVector3) pos andHeadView:(GLKMatrix4)headView
+- (void)updateWithDt:(float)dt andPosition:(vec3) pos andHeadView:(mat4)headView
 {
-	float s = 500 * dt;
-	GLKVector3 forw = GLKMatrix4MultiplyVector3(GLKMatrix4Invert(headView, NULL), GLKVector3Make(0, 0, s));
-	forw = GLKVector3Make(forw.x, -forw.y, forw.z);
-	
-#if (TARGET_IPHONE_SIMULATOR)
-	forw = GLKVector3Make(0, 0, -1);
-#endif
-	
-	_position = GLKVector3Add(_position, forw);
-	if(_position.x != _position.x) {
-		_position = GLKVector3Make(0.0, 200.0, 0.0);
-	}
+	_position = pos;
 	[_chunkManager updateWithPos: _position];
 }
 
@@ -205,22 +194,25 @@ typedef std::pair<int,int> IntPair;
 	
 	GLCheckForError();
 	
-	GLKMatrix4 perspective = [eye perspectiveMatrixWithZNear:10.0f zFar: 1.5 * CHUNKSAROUND * CHUNKWIDTH];
+	mat4 perspective = make_mat4([eye perspectiveMatrixWithZNear:10.0f zFar: 1.5 * CHUNKSAROUND * CHUNKWIDTH].m);
 	
-	GLKMatrix4 view = GLKMatrix4Identity;
-	view = GLKMatrix4RotateY(view, M_PI);
-	view = GLKMatrix4Translate(view, -_position.x, -_position.y, -_position.z);
+	mat4 view(1.f);
+	view = translate(mat4(1.f), -_position) * view;
+	
+	view = rotate(mat4(1.f), (float) M_PI, vec3(0, 1, 0)) * view;
 	
 #if !(TARGET_IPHONE_SIMULATOR)
-	view = GLKMatrix4Multiply([eye eyeViewMatrix], view);
+	view = make_mat4([eye eyeViewMatrix].m) * view;
 #endif
 	
-	GLKMatrix4 projView = GLKMatrix4Multiply(perspective, view);
+	//view = mat4_cast(angleAxis((float)M_PI, vec3(0,1,0))) * view;
+
+	mat4 projView = perspective * view;
 	
 	glUseProgram(_program);
 	glBindVertexArrayOES(_vertexArray);
 	
-	glUniformMatrix4fv(_projViewLoc, 1, 0, projView.m);
+	glUniformMatrix4fv(_projViewLoc, 1, 0, value_ptr(projView));
 	
 	[_chunkManager drawAllChunksWithTR: self];
 	
@@ -294,7 +286,7 @@ typedef std::pair<int,int> IntPair;
 	return [_biomeColors getHudColor];
 }
 
-- (void)updateWithPos:(GLKVector3) pos
+- (void)updateWithPos:(vec3) pos
 {
 	float x = pos.x;
 	float z = pos.z;
