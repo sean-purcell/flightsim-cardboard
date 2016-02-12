@@ -6,6 +6,7 @@
 #include <glm/gtc/quaternion.hpp>
 #include <glm/gtx/quaternion.hpp>
 #include <glm/gtx/normal.hpp>
+#include <glm/gtx/transform.hpp>
 
 // This is bad practice but simplifies writing very nicely,
 // and we won't be overlapping with it anyway

@@ -56,7 +56,7 @@
 	[self setParams];
 	
 	_pos = vec3(0, 1000.f, 1);
-	_facing = quat(1, 0, 0, 0);
+	_facing = mat3(1.f);
 	_vel = vec3(0, 0, 500);
 	_omega = vec3(0, 0, 0);
 	
@@ -67,7 +67,7 @@
 {
 	_g = -9.8;
 	_mass = 16770;
-	_thrust = 79200 * 2 * 10;
+	_thrust = 79200 * 2;
 	_aoi = 5 * M_PI / 180;
 	_maxaileron = 45 * M_PI / 180;
 	_minaileron = -45 * M_PI / 180;
@@ -91,7 +91,17 @@
 
 - (void)updateWithDt:(float) dt andHeadView:(mat4) headView;
 {
-	_facing = inverse(quat_cast(headView));
+	_facing = mat3(scale(mat4(1.f), vec3(1, -1, 1)) * inverse(headView));
+	//_facing = mat3(inverse(headView));
+	
+	vec3 fw = _facing * vec3(0, 0, 1);
+	vec3 ri = _facing * vec3(1, 0, 0);
+	vec3 up = _facing * vec3(0, 1, 0);
+	
+	NSLog(@"fw: (%f, %f, %f)", fw.x, fw.y, fw.z);
+	NSLog(@"ri: (%f, %f, %f)", ri.x, ri.y, ri.z);
+	NSLog(@"up: (%f, %f, %f)", up.x, up.y, up.z);
+	
 	[self applyForcesWithDt: dt];
 }
 
@@ -105,6 +115,8 @@
 	netF += [self fDrag];
 	
 	vec3 a = netF / _mass;
+	
+	NSLog(@"a: (%f, %f, %f)", a.x, a.y, a.z);
 	
 	_pos += dt * _vel + 0.5f * a * dt*dt;
 	_vel += dt * a;

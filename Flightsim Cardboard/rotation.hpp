@@ -17,6 +17,7 @@ class Euler
         Euler();
         Euler(float bank, float elevation, float heading);
         static Euler fromRotation(quat facing);
+        static Euler fromRotation(mat3 facing);
 
         float yawd();
         float pitchd();

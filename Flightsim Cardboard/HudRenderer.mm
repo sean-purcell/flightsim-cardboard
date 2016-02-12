@@ -36,8 +36,8 @@
 	
 	GLuint _vbo, _ebo;
 	
-	GLKMatrix4 _headViewInv;
-	quat _facing;
+	mat4 _headViewInv;
+	mat3 _facing;
 	vec3 _pos, _vel;
 	
 	size_t _indNum;
@@ -157,12 +157,10 @@
 {
 }
 
-- (void)updateWithPos:(vec3) pos andFacing:(quat)facing andVel:(vec3) vel andHeadView:(GLKMatrix4)headView
+- (void)updateWithPos:(vec3) pos andFacing:(mat3)facing andVel:(vec3) vel andHeadView:(mat4)headView
 {
-	_headViewInv = GLKMatrix4Invert(headView, NULL);
+	_headViewInv = inverse(headView);
 	_facing = facing;
-	//_facing = facing;
-	NSLog(@"facing: (%f,%f,%f,%f)", _facing.x, _facing.y, _facing.z, _facing.w);
 	_pos = pos;
 	_vel = vel;
 	
@@ -179,13 +177,13 @@
 	
 	GLCheckForError();
 	
-	GLKMatrix4 perspective = [eye perspectiveMatrixWithZNear:0.1f zFar: 10.f];
+	mat4 perspective = make_mat4([eye perspectiveMatrixWithZNear:0.1f zFar: 10.f].m);
 	
-	GLKMatrix4 view = GLKMatrix4Identity;
-	view =
-	view = GLKMatrix4Multiply(GLKMatrix4Multiply(_headViewInv, [eye eyeViewMatrix]), view);
+	mat4 view(1.f);
+	view[2][2] = -1;
+	view = _headViewInv * make_mat4([eye eyeViewMatrix].m) * view;
 	
-	GLKMatrix4 projView = GLKMatrix4Multiply(perspective, view);
+	mat4 projView = perspective * view;
 	
 	glUseProgram(_program);
 	glBindVertexArrayOES(_vertexArray);
@@ -194,7 +192,7 @@
 	glBindTexture(GL_TEXTURE_2D, _tex);
 	glUniform1i(_texLoc, 0);
 	
-	glUniformMatrix4fv(_projViewLoc, 1, 0, projView.m);
+	glUniformMatrix4fv(_projViewLoc, 1, 0, value_ptr(projView));
 	
 	[self drawHud];
 	
@@ -286,7 +284,7 @@ digit(tl, r, d, c);\
 } while(0)
 	
 	vec3 pos = _pos;
-	quat facing = _facing;
+	mat3 facing = _facing;
 	vec3 vel = _vel;
 	
 	std::vector<GLfloat> vertices;
@@ -294,15 +292,14 @@ digit(tl, r, d, c);\
 	
 	Euler angles = Euler::fromRotation(facing); // This method automatically converts the coordinates. See rotation.cpp.
 	
+	NSLog(@"angles: %f, %f, %f", angles.yaw, angles.pitch, angles.roll);
+	
 	quat roll = angleAxis(angles.roll, vec3(0, 0, 1));
 	vec3 right = roll * vec3(1, 0, 0);
 	vec3 rperp = roll * vec3(0, 1, 0);
 	
 	quat pitch = angleAxis(angles.pitch, right);
 	vec3 forw = pitch * vec3(0, 0, 1);
-	
-	NSLog(@"forw: (%f, %f, %f)", forw.x, forw.y, forw.z);
-	NSLog(@"rigt: (%f, %f, %f)", right.x, right.y, right.z);
 	
 	/* draw a cross hair representing velocity direction */
 	{
@@ -341,7 +338,7 @@ digit(tl, r, d, c);\
 	
 	vec3 vec = forw * 1.f;
 	float linewidth = 0.75f;
-	quat rot = angleAxis(-(float)M_PI/36, right);
+	quat rot = angleAxis((float)(2.f*M_PI/72), right);
 	for(int a = 0; a < 360; a += 5, vec = rot * vec) {
 		if(acos(dot(vec, vec3(0, 0, 1))) > 15 * M_PI / 180.f) {
 			continue;

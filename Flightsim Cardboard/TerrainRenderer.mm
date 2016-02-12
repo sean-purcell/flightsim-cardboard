@@ -333,7 +333,6 @@ typedef std::pair<int,int> IntPair;
 {
 	if(![self isLoaded: key]) {
 		_loaded[key] = [[TerrainChunk alloc] initWithCM: self x: key.first z: key.second];
-		NSLog(@"Loading chunk: %d %d", key.first, key.second);
 	}
 }
 
@@ -490,7 +489,6 @@ typedef std::pair<int,int> IntPair;
 
 - (void)dealloc
 {
-	NSLog(@"Deleting chunk %d %d", _x, _z);
 	glDeleteBuffers(1, &_vbo);
 	glDeleteBuffers(1, &_ebo);
 }

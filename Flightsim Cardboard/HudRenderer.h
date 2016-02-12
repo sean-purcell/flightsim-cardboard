@@ -17,7 +17,7 @@
 - (void)setupRendererWithView:(GLKView *)glView;
 - (void)shutdownRendererWithView:(GLKView *)glView;
 - (void)renderViewDidChangeSize:(CGSize)size;
-- (void)updateWithPos:(vec3) pos andFacing:(quat)facing andVel:(vec3) vel andHeadView:(GLKMatrix4)headView;
+- (void)updateWithPos:(vec3) pos andFacing:(mat3)facing andVel:(vec3) vel andHeadView:(GLKMatrix4)headView;
 - (void)drawEyeWithEye:(CBDEye *)eye;
 - (void)finishFrameWithViewportRect:(CGRect)viewPort;
 - (void)setHudColor:(vec4) hudColor;
