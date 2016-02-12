@@ -43,6 +43,7 @@
 	float _rudderarea;
 	float _rudderradius;
 	float _rho;
+	float _liftcoeff;
 	float _dragcoeff;
 	float _rudderdampcoeff;
 	float _rolldampcoeff;
@@ -67,7 +68,7 @@
 {
 	_g = -9.8;
 	_mass = 16770;
-	_thrust = 79200 * 2;
+	_thrust = 79200 * 2 * 20;
 	_aoi = 5 * M_PI / 180;
 	_maxaileron = 45 * M_PI / 180;
 	_minaileron = -45 * M_PI / 180;
@@ -84,7 +85,8 @@
 	_rudderarea = 0.3;
 	_rudderradius = 8;
 	_rho = 1.225;
-	_dragcoeff = 0.2;
+	_liftcoeff = 1;
+	_dragcoeff = 10;
 	_rudderdampcoeff = 100;
 	_rolldampcoeff = 50;
 }
@@ -135,18 +137,17 @@
 
 - (vec3)fWing
 {
-	quat wingang = angleAxis(_aoi, vec3(-1, 0, 0));
+	quat wingang = angleAxis(_aoi, vec3(1, 0, 0));
 	vec3 wn = _facing * (wingang * vec3(0, 1, 0));
 	
 	vec3 v = -1.0f * _vel;
 	
-	return wn * _rho * _wingarea * (float) fabs(dot(v, wn)) * (dot(v, wn));
+	return wn * _rho * _wingarea * (float) fabs(dot(v, wn)) * (dot(v, wn)) * _liftcoeff;
 }
 
 - (vec3)fDrag
 {
-	vec3 bw = _facing * vec3(0, 0, -1);
-	return bw * (dot(_vel, bw)) * (dot(_vel, bw)) * _rho * _dragcoeff;
+	return -_vel * length(_vel) * _rho * _dragcoeff;
 }
 
 @end

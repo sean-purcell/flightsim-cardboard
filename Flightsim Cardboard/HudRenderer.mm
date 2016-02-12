@@ -177,7 +177,7 @@
 	
 	GLCheckForError();
 	
-	mat4 perspective = make_mat4([eye perspectiveMatrixWithZNear:0.1f zFar: 10.f].m);
+	mat4 perspective = make_mat4([eye perspectiveMatrixWithZNear:1.f zFar: 100.f].m);
 	
 	mat4 view(1.f);
 	view[2][2] = -1;
@@ -259,9 +259,9 @@ indices.push_back(start + 3);\
 } while(0)
 	
 #define vertex(v) do {\
-vertices.push_back((v).x);\
-vertices.push_back((v).y);\
-vertices.push_back((v).z);\
+vertices.push_back((v).x * scale);\
+vertices.push_back((v).y * scale);\
+vertices.push_back((v).z * scale);\
 vertices.push_back(0.f);\
 vertices.push_back(0.f);\
 } while(0)
@@ -282,6 +282,8 @@ quad(); \
 #define rect(tl, r, d, c) do {\
 digit(tl, r, d, c);\
 } while(0)
+	
+	float scale = 4.f;
 	
 	vec3 pos = _pos;
 	mat3 facing = _facing;
@@ -422,7 +424,7 @@ digit(tl, r, d, c);\
 	float airspeed = length(vel);
 	float asheight = 2.f;
 	
-	vec3 asbasis(-2.f, 0.f, 5.f);
+	vec3 asbasis(-1.7f, 0.f, 5.f);
 	vec3 astickh(0.f, asheight/50.f, 0.f);
 	vec3 astickw(-0.3f, 0, 0);
 	rect(asbasis - vec3(0, asheight / 2.f, 0), vec3(0.02f, 0, 0), vec3(0, asheight, 0),
@@ -454,7 +456,7 @@ digit(tl, r, d, c);\
 	}
 	
 	float alheight = asheight;
-	vec3 albasis(2.f, 0.f, 5.f);
+	vec3 albasis(1.7f, 0.f, 5.f);
 	vec3 altickh(0.f, alheight/500.f, 0.f);
 	vec3 altickw(0.3f, 0, 0);
 	rect(albasis - vec3(0, alheight / 2.f, 0), vec3(0.02f, 0, 0), vec3(0, asheight, 0),
