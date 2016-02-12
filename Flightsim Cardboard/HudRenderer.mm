@@ -309,7 +309,9 @@ digit(tl, r, d, c);\
 		angleAxis(-angles.pitch, vec3(1, 0, 0)) *
 		angleAxis(-angles.roll, vec3(0, 0, 1));
 		vec3 vels = normalize(vel) * velfix;
+		vels = inverse(facing) * normalize(vel);
 		vels = vels - 2 * dot(vels, right) * right;
+		vels = vels - 2 * dot(vels, rperp) * rperp;
 		//vels = angleAxis(-angles.yaw, vec3(0, 1, 0)) * vels;
 		rect(-0.1f * cright + 0.01f * cup + vels * 5.f, 0.2f * cright,
 			 -0.02f * cup, 'F');
