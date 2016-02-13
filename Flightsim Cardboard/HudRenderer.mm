@@ -294,8 +294,6 @@ digit(tl, r, d, c);\
 	
 	Euler angles = Euler::fromRotation(facing); // This method automatically converts the coordinates. See rotation.cpp.
 	
-	NSLog(@"angles: %f, %f, %f", angles.yaw, angles.pitch, angles.roll);
-	
 	quat roll = angleAxis(angles.roll, vec3(0, 0, 1));
 	vec3 right = roll * vec3(1, 0, 0);
 	vec3 rperp = roll * vec3(0, 1, 0);
@@ -307,13 +305,12 @@ digit(tl, r, d, c);\
 	{
 		vec3 cright = right;
 		vec3 cup = rperp;
-		quat velfix = angleAxis(-angles.yaw, vec3(0, 1, 0)) *
-		angleAxis(-angles.pitch, vec3(1, 0, 0)) *
-		angleAxis(-angles.roll, vec3(0, 0, 1));
-		vec3 vels = normalize(vel) * velfix;
-		vels = inverse(facing) * normalize(vel);
-		vels = vels - 2 * dot(vels, right) * right;
-		vels = vels - 2 * dot(vels, rperp) * rperp;
+
+		vec3 vels = inverse(facing) * normalize(vel);
+		
+		vels.x *= -1; // adjust for the fact that +x is left in the world, but right in the GUI
+		
+		//vels = vels - 2 * dot(vels, rperp) * rperp;
 		//vels = angleAxis(-angles.yaw, vec3(0, 1, 0)) * vels;
 		rect(-0.1f * cright + 0.01f * cup + vels * 5.f, 0.2f * cright,
 			 -0.02f * cup, 'F');
@@ -342,7 +339,7 @@ digit(tl, r, d, c);\
 	
 	vec3 vec = forw * 1.f;
 	float linewidth = 0.75f;
-	quat rot = angleAxis((float)(2.f*M_PI/72), right);
+	quat rot = angleAxis((float)(2.f*M_PI/72), -right);
 	for(int a = 0; a < 360; a += 5, vec = rot * vec) {
 		if(acos(dot(vec, vec3(0, 0, 1))) > 15 * M_PI / 180.f) {
 			continue;
@@ -391,7 +388,7 @@ digit(tl, r, d, c);\
 	}
 	
 	/* draw the heading */
-	float tickwidth = 10.f / 360.f;
+	float tickwidth = -10.f / 360.f;
 	float tickheight = 0.1f;
 	float headwidth = tickwidth * 90.f;
 	vec3 basis((360 -angles.yawd()) * tickwidth, 2.f, 5.f);
@@ -399,10 +396,10 @@ digit(tl, r, d, c);\
 	vec = basis;
 	
 	for(int a = 0; a < 360; a+=5, vec += 5.f*mov) {
-		if(vec.x > headwidth / 2.f) {
+		if(vec.x < headwidth / 2.f) {
 			vec.x -= 360 * tickwidth;
 		}
-		if(vec.x < -headwidth / 2.f) continue;
+		if(vec.x > -headwidth / 2.f) continue;
 		
 		if(a % 90 == 0) {
 			vec3 right(tickheight, 0, 0);

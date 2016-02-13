@@ -46,15 +46,11 @@ Euler Euler::fromRotation(quat facing)
 }
 
 Euler Euler::fromRotation(mat3 m) {
-	float a = atan2(m[0][2], m[0][0]);
-	float b = asin(m[0][1]);
-	float c = atan2(-m[2][1], m[1][1]);
-	if(m[0][1] == 1) {
-		a = atan2(m[2][0], m[2][2]);
-		c = 0;
-	}
+	float roll = atan2(m[0][1], m[1][1]);
+	float pitch = asin(min(max(m[2][1], -1.f), 1.f));
+	float yaw = atan2(m[2][0], m[2][2]);
 	
-	return Euler(b, c, a);
+	return Euler(roll, pitch, yaw);
 }
 
 /** Return the quaternion representation of these Tait-Bryan z-y-x angles.
