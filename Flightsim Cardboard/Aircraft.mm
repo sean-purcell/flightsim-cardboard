@@ -108,8 +108,8 @@
 {
 	Euler angles = Euler::controlFromFacing(view);
 	
-	//_rollControl = min(max(angles.roll / ((float)M_PI / 4.f), -1.f), 1.f) * _maxaileron;
-	_pitchControl = min(max(angles.pitch / ((float) M_PI / 9.f), -1.f), 1.f) * _maxelevator;
+	_rollControl = min(max(angles.roll / (PI / 9.f), -1.f), 1.f) * _maxaileron;
+	_pitchControl = min(max(angles.pitch / (PI / 9.f), -1.f), 1.f) * _maxelevator;
 	
 	NSLog(@"p: %f r: %f y: %f", angles.pitchd(), angles.rolld(), angles.yawd());
 }
@@ -175,11 +175,14 @@
 
 - (float)tAileron
 {
-	quat ailangl = angleAxis(-_aoi - _rollControl, vec3(1, 0, 0));
-	quat ailangr = angleAxis(-_aoi + _rollControl, vec3(1, 0, 0));
+	quat ailangl = angleAxis(-_aoi + _rollControl, vec3(1, 0, 0));
+	quat ailangr = angleAxis(-_aoi - _rollControl, vec3(1, 0, 0));
 	
 	vec3 anl = _facing * (ailangl * vec3(0, 1, 0));
 	vec3 anr = _facing * (ailangr * vec3(0, 1, 0));
+	
+	NSLog(@"anl : %@", NSStringFromGLKVector3(GLKVector3MakeWithArray(value_ptr(anl))));
+	NSLog(@"anr : %@", NSStringFromGLKVector3(GLKVector3MakeWithArray(value_ptr(anr))));
 	
 	vec3 v = -_vel;
 	
@@ -199,14 +202,11 @@
 
 - (float)tElevator
 {
-	NSLog(@"angl: %f", -_aoi + _pitchControl);
 	quat elangl = angleAxis(-_aoi + _pitchControl, vec3(1, 0, 0));
 	
 	vec3 en = _facing * (elangl * vec3(0, 1, 0));
-	NSLog(@"en: %@", NSStringFromGLKVector3(GLKVector3MakeWithArray(value_ptr(en))));
 	
 	vec3 v = -_vel + _facing * vec3(0, _omega.x * _elevatorradius, 0);
-	NSLog(@"v: %@", NSStringFromGLKVector3(GLKVector3MakeWithArray(value_ptr(v))));
 	
 	vec3 lift = en * _rho * _elevatorarea * (float) fabs(dot(v, en)) * dot(v, en);
 	

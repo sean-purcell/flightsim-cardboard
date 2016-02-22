@@ -204,7 +204,8 @@ typedef std::pair<int,int> IntPair;
 	mat4 view(1.f);
 	view = translate(mat4(1.f), -_position) * view;
 	
-	view = mat4_cast(_facing) * rotate(mat4(1.f), (float) M_PI, vec3(0, 1, 0)) * view;
+	view = mat4_cast(inverse(_facing)) * view;
+	view = rotate(mat4(1.f), (float) M_PI, vec3(0, 1, 0)) * view;
 	
 #if !(TARGET_IPHONE_SIMULATOR)
 	view = make_mat4([eye eyeViewMatrix].m) * view;
