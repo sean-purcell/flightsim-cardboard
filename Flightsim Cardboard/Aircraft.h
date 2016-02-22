@@ -14,6 +14,6 @@
 @property vec3 pos;
 @property vec3 vel;
 @property vec3 omega;
-@property mat3 facing;
+@property quat facing;
 
 @end

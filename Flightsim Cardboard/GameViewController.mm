@@ -73,12 +73,10 @@
 	[self.aircraft updateWithDt: self.timeSinceLastUpdate andHeadView: headView];
 	
 	[self.terrainRenderer updateWithDt: self.timeSinceLastUpdate
-						andPosition: self.aircraft.pos
+						   andAircraft: self.aircraft
 						andHeadView: headView];
-	[self.hudRenderer updateWithPos: self.aircraft.pos
-						  andFacing: self.aircraft.facing
-							 andVel: self.aircraft.vel
-						andHeadView: headViewMatrix];
+	[self.hudRenderer updateWithAircraft: self.aircraft
+						     andHeadView: headView];
 }
 
 - (void)drawEyeWithEye:(CBDEye *)eye

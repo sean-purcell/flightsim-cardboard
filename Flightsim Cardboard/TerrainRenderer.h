@@ -8,11 +8,13 @@
 
 #import "glmheaders.hpp"
 
+#import "Aircraft.h"
+
 @interface TerrainRenderer : NSObject
 - (void)setupRendererWithView:(GLKView *)glView;
 - (void)shutdownRendererWithView:(GLKView *)glView;
 - (void)renderViewDidChangeSize:(CGSize)size;
-- (void)updateWithDt:(float)dt andPosition:(vec3) pos andHeadView:(mat4)headView;
+- (void)updateWithDt:(float)dt andAircraft:(Aircraft *) ac andHeadView:(mat4)headView;
 - (void)drawEyeWithEye:(CBDEye *)eye;
 - (void)finishFrameWithViewportRect:(CGRect)viewPort;
 - (vec4)getHudColor;

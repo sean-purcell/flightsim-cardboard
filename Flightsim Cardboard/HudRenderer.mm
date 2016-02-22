@@ -16,6 +16,8 @@
 #import "rotation.hpp"
 #import "lodepng.h"
 
+#import "Aircraft.h"
+
 #import <vector>
 
 #pragma mark - Objective-C interface
@@ -37,7 +39,7 @@
 	GLuint _vbo, _ebo;
 	
 	mat4 _headViewInv;
-	mat3 _facing;
+	quat _facing;
 	vec3 _pos, _vel;
 	
 	size_t _indNum;
@@ -157,12 +159,12 @@
 {
 }
 
-- (void)updateWithPos:(vec3) pos andFacing:(mat3)facing andVel:(vec3) vel andHeadView:(mat4)headView
+- (void)updateWithAircraft:(Aircraft *) ac andHeadView:(mat4)headView
 {
 	_headViewInv = inverse(headView);
-	_facing = facing;
-	_pos = pos;
-	_vel = vel;
+	_facing = ac.facing;
+	_pos = ac.pos;
+	_vel = ac.vel;
 	
 	_indNum = [self updateHudVertices];
 }
@@ -180,8 +182,8 @@
 	mat4 perspective = make_mat4([eye perspectiveMatrixWithZNear:1.f zFar: 100.f].m);
 	
 	mat4 view(1.f);
-	view[2][2] = -1;
-	view = _headViewInv * make_mat4([eye eyeViewMatrix].m) * view;
+	view[2][2] = -1; /* flip Z values into negative */
+	view = /*_headViewInv * */make_mat4([eye eyeViewMatrix].m) * view;
 	
 	mat4 projView = perspective * view;
 	
@@ -286,7 +288,7 @@ digit(tl, r, d, c);\
 	float scale = 4.f;
 	
 	vec3 pos = _pos;
-	mat3 facing = _facing;
+	quat facing = _facing;
 	vec3 vel = _vel;
 	
 	std::vector<GLfloat> vertices;
@@ -491,21 +493,6 @@ digit(tl, r, d, c);\
 			rect(albasis + yvec - vec3(0, 0.01f, 0), altickw / 1.5f, vec3(0, 0.02f, 0), 'F');
 		}
 	}
-	
-	
-	/*{
-		vertices.clear();
-		indices.clear();
-		digit(vec3(0.0f, 0.0f, -5.0f), vec3(2.0f, 0.0f, 0.0f), vec3(0.0f, -2.0f, 0.0f), '3');
-		vertices[3] = 0;
-		vertices[4] = 0;
-		vertices[8] = 0;
-		vertices[9] = 1;
-		vertices[18] = 1;
-		vertices[19] = 0;
-		vertices[13] = 1;
-		vertices[14] = 1;
-	}*/
 	
 #undef quad
 #undef vertex

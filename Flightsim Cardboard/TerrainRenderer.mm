@@ -17,6 +17,8 @@
 
 #import "BiomeColors.h"
 
+#import "Aircraft.h"
+
 #include <utility>
 #include <map>
 
@@ -80,6 +82,8 @@ typedef std::pair<int,int> IntPair;
 	GLint _projViewLoc;
 	
 	vec3 _position;
+	
+	quat _facing;
 }
 
 @property (nonatomic) ChunkManager *chunkManager;
@@ -177,9 +181,10 @@ typedef std::pair<int,int> IntPair;
 {
 }
 
-- (void)updateWithDt:(float)dt andPosition:(vec3) pos andHeadView:(mat4)headView
+- (void)updateWithDt:(float)dt andAircraft:(Aircraft *) ac andHeadView:(mat4)headView
 {
-	_position = pos;
+	_position = ac.pos;
+	_facing = ac.facing;
 	[_chunkManager updateWithPos: _position];
 }
 
@@ -199,7 +204,7 @@ typedef std::pair<int,int> IntPair;
 	mat4 view(1.f);
 	view = translate(mat4(1.f), -_position) * view;
 	
-	view = rotate(mat4(1.f), (float) M_PI, vec3(0, 1, 0)) * view;
+	view = mat4_cast(_facing) * rotate(mat4(1.f), (float) M_PI, vec3(0, 1, 0)) * view;
 	
 #if !(TARGET_IPHONE_SIMULATOR)
 	view = make_mat4([eye eyeViewMatrix].m) * view;
@@ -314,7 +319,7 @@ typedef std::pair<int,int> IntPair;
 			if(![self isLoaded: key]) {
 				[self loadChunk: key];
 				loaded++;
-				if(loaded == 5) return;
+				if(loaded == 2) return;
 			}
 		}
 	}

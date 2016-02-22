@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flightsim Cardboard/TerrainRenderer.mm"
-            timestampString = "476598054.465048"
+            timestampString = "477795619.663727"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
-            landmarkName = "-updateWithDt:andPosition:andHeadView:"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "-updateWithDt:andAircraft:andHeadView:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flightsim Cardboard/HudRenderer.mm"
-            timestampString = "476943829.776046"
+            timestampString = "477526871.886816"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "528"
-            endingLineNumber = "528"
+            startingLineNumber = "512"
+            endingLineNumber = "512"
             landmarkName = "-updateHudVertices"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flightsim Cardboard/HudRenderer.mm"
-            timestampString = "476943829.776046"
+            timestampString = "477526871.886816"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "305"
@@ -58,12 +58,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flightsim Cardboard/HudRenderer.mm"
-            timestampString = "476681819.242213"
+            timestampString = "477526871.886816"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
-            landmarkName = "-updateWithPos:andFacing:andVel:andHeadView:"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
+            landmarkName = "-updateWithAircraft:andHeadView:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
