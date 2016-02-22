@@ -82,7 +82,7 @@
 	_maxelevator = 24 * M_PI / 180;
 	_minelevator = -24 * M_PI / 180;
 	_wingarea = 38;
-	_pitchmoi = 21935.779;
+	_pitchmoi = 21935.779 / 2;
 	_rollmoi = 161820.94;
 	_yawmoi = 178290.06;
 	_aileronarea = 0.3;
@@ -140,9 +140,6 @@
 		_facing = normalize(_facing);
 	}
 	
-	NSLog(@"omega : %@", NSStringFromGLKVector3(GLKVector3MakeWithArray(value_ptr(_omega))));
-	NSLog(@"facing: %@", NSStringFromGLKVector4(GLKVector4MakeWithArray(value_ptr(_facing))));
-	
 	_pos += dt * _vel + 0.5f * a * dt*dt;
 	_vel += dt * a;
 }
@@ -180,9 +177,6 @@
 	
 	vec3 anl = _facing * (ailangl * vec3(0, 1, 0));
 	vec3 anr = _facing * (ailangr * vec3(0, 1, 0));
-	
-	NSLog(@"anl : %@", NSStringFromGLKVector3(GLKVector3MakeWithArray(value_ptr(anl))));
-	NSLog(@"anr : %@", NSStringFromGLKVector3(GLKVector3MakeWithArray(value_ptr(anr))));
 	
 	vec3 v = -_vel;
 	
