@@ -53,6 +53,21 @@ Euler Euler::fromRotation(mat3 m) {
 	return Euler(roll, pitch, yaw);
 }
 
+// Obtains the angles from the headview matrix given
+Euler Euler::controlFromFacing(mat3 m) {
+	/* The matrix looks like:
+	 [-sp*sr*sy + cr*cy, sr*cp, sp*sr*cy + sy*cr]
+	 [-sp*sy*cr - sr*cy, cp*cr, sp*cr*cy - sr*sy]
+	 [          - sy*cp,   -sp,            cp*cy]
+	 */
+	
+	float pitch = asin(-min(max(m[1][2], -1.f), 1.f));
+	float yaw = atan2(-m[0][2], m[2][2]);
+	float roll = atan2(m[1][0], m[1][1]);
+	
+	return Euler(roll, pitch, yaw);
+}
+
 /** Return the quaternion representation of these Tait-Bryan z-y-x angles.
  * Maths: https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles
  */
