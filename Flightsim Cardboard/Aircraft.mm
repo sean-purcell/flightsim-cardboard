@@ -195,7 +195,7 @@
 
 - (float)tElevator
 {
-	quat elangl = angleAxis(-_aoi + _elevatorAngle, vec3(1, 0, 0));
+	quat elangl = angleAxis(_elevatorAngle, vec3(1, 0, 0));
 	
 	vec3 en = _facing * (elangl * vec3(0, 1, 0));
 	
