@@ -531,28 +531,27 @@ digit(tl, r, d, c);\
 	}
 	
 	{ /* draw the pitch controls */
-		float offset = 1.6f;
-		float height = 1.25f;
+		float height = 0.6f;
 		
-		vec3 basis = vec3(0, -offset, 5.f);
+		vec3 basis = vec3(-1.4, 1.4f, 5.f);
 		
 		{
 			vec3 up = vec3(0, height, 0);
-			vec3 left = vec3(0, 0.02f, 0);
+			vec3 left = vec3(0.02f, 0, 0);
 			
 			rect(basis - up / 2.f, up, left, 'F');
 		}
 		
 		{
 			vec3 up = vec3(0, 0.02f, 0);
-			vec3 left = vec3(0, 0.1f, 0);
+			vec3 left = vec3(0.1f, 0, 0);
 			
 			rect(basis - up / 2.f, up, left, 'F');
 		}
 		
 		{
 			vec3 up = vec3(0, 0.02f, 0);
-			vec3 left = vec3(0, -0.1f, 0);
+			vec3 left = vec3(-0.1f, 0.f, 0);
 			vec3 offset = vec3(0, _ac.pitchControl * height / 2.f, 0);
 			
 			rect(basis - up / 2.f + offset, up, left, 'F');
