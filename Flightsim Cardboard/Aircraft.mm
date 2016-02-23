@@ -52,8 +52,8 @@
 	float _rudderdampcoeff;
 	float _rolldampcoeff;
 	
-	float _rollControl;
-	float _pitchControl;
+	float _elevatorAngle;
+	float _aileronAngle;
 }
 
 - (instancetype)init
@@ -108,10 +108,11 @@
 {
 	Euler angles = Euler::controlFromFacing(view);
 	
-	_rollControl = min(max(angles.roll / (PI / 9.f), -1.f), 1.f) * _maxaileron;
-	_pitchControl = min(max(angles.pitch / (PI / 9.f), -1.f), 1.f) * _maxelevator;
+	_rollControl = min(max(angles.roll / (PI / 9.f), -1.f), 1.f);
+	_pitchControl = min(max(angles.pitch / (PI / 9.f), -1.f), 1.f);
 	
-	NSLog(@"p: %f r: %f y: %f", angles.pitchd(), angles.rolld(), angles.yawd());
+	_elevatorAngle = _pitchControl * _maxelevator;
+	_aileronAngle = _rollControl * _maxaileron;
 }
 
 - (void)applyForcesWithDt:(float) dt
@@ -126,8 +127,6 @@
 	float rollA = [self tAileron] / _rollmoi;
 	float pitchA = [self tElevator] / _pitchmoi;
 	float yawA = [self tRudder] / _yawmoi;
-	
-	NSLog(@"pitchA: %f", pitchA);
 	
 	vec3 a = netF / _mass;
 	vec3 alpha(pitchA, yawA, rollA);
@@ -172,8 +171,8 @@
 
 - (float)tAileron
 {
-	quat ailangl = angleAxis(-_aoi + _rollControl, vec3(1, 0, 0));
-	quat ailangr = angleAxis(-_aoi - _rollControl, vec3(1, 0, 0));
+	quat ailangl = angleAxis(-_aoi + _aileronAngle, vec3(1, 0, 0));
+	quat ailangr = angleAxis(-_aoi - _aileronAngle, vec3(1, 0, 0));
 	
 	vec3 anl = _facing * (ailangl * vec3(0, 1, 0));
 	vec3 anr = _facing * (ailangr * vec3(0, 1, 0));
@@ -196,7 +195,7 @@
 
 - (float)tElevator
 {
-	quat elangl = angleAxis(-_aoi + _pitchControl, vec3(1, 0, 0));
+	quat elangl = angleAxis(-_aoi + _elevatorAngle, vec3(1, 0, 0));
 	
 	vec3 en = _facing * (elangl * vec3(0, 1, 0));
 	

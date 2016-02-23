@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flightsim Cardboard/HudRenderer.mm"
-            timestampString = "477526871.886816"
+            timestampString = "477896174.749909"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "512"
-            endingLineNumber = "512"
+            startingLineNumber = "577"
+            endingLineNumber = "577"
             landmarkName = "-updateHudVertices"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flightsim Cardboard/HudRenderer.mm"
-            timestampString = "477526871.886816"
+            timestampString = "477893073.684549"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "305"
-            endingLineNumber = "305"
+            startingLineNumber = "304"
+            endingLineNumber = "304"
             landmarkName = "-updateHudVertices"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flightsim Cardboard/HudRenderer.mm"
-            timestampString = "477526871.886816"
+            timestampString = "477893073.684549"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "-updateWithAircraft:andHeadView:"
             landmarkType = "5">
          </BreakpointContent>

@@ -39,8 +39,8 @@
 	GLuint _vbo, _ebo;
 	
 	mat4 _headViewInv;
-	quat _facing;
-	vec3 _pos, _vel;
+	
+	Aircraft *_ac;
 	
 	size_t _indNum;
 }
@@ -162,9 +162,8 @@
 - (void)updateWithAircraft:(Aircraft *) ac andHeadView:(mat4)headView
 {
 	_headViewInv = inverse(headView);
-	_facing = ac.facing;
-	_pos = ac.pos;
-	_vel = ac.vel;
+	
+	_ac = ac;
 	
 	_indNum = [self updateHudVertices];
 }
@@ -287,9 +286,9 @@ digit(tl, r, d, c);\
 	
 	float scale = 4.f;
 	
-	vec3 pos = _pos;
-	quat facing = _facing;
-	vec3 vel = _vel;
+	vec3 pos = _ac.pos;
+	quat facing = _ac.facing;
+	vec3 vel = _ac.vel;
 	
 	std::vector<GLfloat> vertices;
 	std::vector<GLushort> indices;
@@ -428,8 +427,6 @@ digit(tl, r, d, c);\
 	vec3 astickw(-0.3f, 0, 0);
 	rect(asbasis - vec3(0, asheight / 2.f, 0), vec3(0.02f, 0, 0), vec3(0, asheight, 0),
 		 'F');
-	//rect(asbasis, vec3(0.1f, 0.1f, 0.f), normalize(vec3(1, -1, 0)) * 0.02f, 'F');
-	//rect(asbasis, vec3(0.1f, -0.1f, 0.f), normalize(vec3(1, 1, 0)) * 0.02f, 'F');
 	rect(asbasis-vec3(0,0.01f,0), vec3(0.1f, 0, 0), vec3(0, 0.02f, 0), 'F');
 	
 	int asiv = (int) (airspeed - 50); asiv = asiv - asiv % 10;
@@ -491,6 +488,74 @@ digit(tl, r, d, c);\
 			}
 		} else {
 			rect(albasis + yvec - vec3(0, 0.01f, 0), altickw / 1.5f, vec3(0, 0.02f, 0), 'F');
+		}
+	}
+	
+	{ /* draw the roll controls */
+		/* draw an arc above the altitude indicator */
+		float radius = 1.6f;
+		float arcWidth = 45.f / 180.f * (float)M_PI;
+		int segments = 100;
+		
+		quat startrot = angleAxis(arcWidth / 2.f, vec3(0, 0, 1));
+		vec3 arcv = startrot * vec3(0, radius, 5.f);
+		vec3 up = startrot * vec3(0, 0.02f, 0);
+		quat rot = angleAxis(-arcWidth / segments, vec3(0, 0, 1));
+		for (int i = 0; i < segments; i++) {
+			vec3 v1 = arcv - up / 2.f;
+			vec3 v2 = arcv + up / 2.f;
+			vec3 v3 = rot * v2;
+			vec3 v4 = rot * v1;
+			
+			vertex(v1);
+			vertex(v2);
+			vertex(v3);
+			vertex(v4);
+			colors('F');
+			quad();
+			
+			arcv = rot * arcv;
+			up = rot * up;
+		}
+		
+		vec3 start = vec3(0, radius, 5.f);
+		vec3 right = vec3(0.02f, 0.f, 0.f);
+		vec3 down = vec3(0.f, 0.1f, 0.f);
+		rect(start - right / 2.f, right, down, 'F');
+		
+		quat controlrot = angleAxis(_ac.rollControl * arcWidth / 2.f, vec3(0, 0, 1));
+		start = controlrot * start;
+		right = controlrot * right;
+		down = controlrot * down;
+		rect(start - right / 2.f, right, -down, 'F');
+	}
+	
+	{ /* draw the pitch controls */
+		float offset = 1.6f;
+		float height = 1.25f;
+		
+		vec3 basis = vec3(0, -offset, 5.f);
+		
+		{
+			vec3 up = vec3(0, height, 0);
+			vec3 left = vec3(0, 0.02f, 0);
+			
+			rect(basis - up / 2.f, up, left, 'F');
+		}
+		
+		{
+			vec3 up = vec3(0, 0.02f, 0);
+			vec3 left = vec3(0, 0.1f, 0);
+			
+			rect(basis - up / 2.f, up, left, 'F');
+		}
+		
+		{
+			vec3 up = vec3(0, 0.02f, 0);
+			vec3 left = vec3(0, -0.1f, 0);
+			vec3 offset = vec3(0, _ac.pitchControl * height / 2.f, 0);
+			
+			rect(basis - up / 2.f + offset, up, left, 'F');
 		}
 	}
 	

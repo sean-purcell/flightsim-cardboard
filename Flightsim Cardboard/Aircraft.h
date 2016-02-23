@@ -16,4 +16,7 @@
 @property vec3 omega;
 @property quat facing;
 
+@property float pitchControl;
+@property float rollControl;
+
 @end
